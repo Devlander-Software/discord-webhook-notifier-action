@@ -2,7 +2,7 @@ name: Test Discord Notify Action
 
 on:
   push:
-    branches: [ main ]
+    branches: [ production ]
   workflow_dispatch: # Allows manual triggering
 
 jobs:
