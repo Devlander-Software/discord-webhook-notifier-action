@@ -1,0 +1,96 @@
+title: Discord Notify Action
+description: The most advanced Discord notification action for GitHub Actions
+url: "https://devlander.github.io"
+baseurl: "/discord-notify-action"
+
+# GitHub Pages settings
+github:
+  is_project_page: true
+  repository_url: https://github.com/devlander/discord-notify-action
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include
+include:
+  - _pages
+
+# SEO
+author:
+  name: Devlander Software
+  email: support@devlander.com
+  bio: Building the most advanced Discord notification action for GitHub Actions
+  location: GitHub
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/devlander"
+
+# Social
+social:
+  - label: "GitHub"
+    icon: "fab fa-fw fa-github"
+    url: "https://github.com/devlander/discord-notify-action"
+  - label: "Issues"
+    icon: "fas fa-fw fa-bug"
+    url: "https://github.com/devlander/discord-notify-action/issues"
+  - label: "Discussions"
+    icon: "fas fa-fw fa-comments"
+    url: "https://github.com/devlander/discord-notify-action/discussions"
+
+# Navigation
+header_pages:
+  - installation.md
+  - configuration.md
+  - examples.md
+  - migration.md
+  - organization.md
+  - testing.md
+  - api.md
+  - troubleshooting.md
+
+# Footer
+footer:
+  - label: "GitHub"
+    icon: "fab fa-fw fa-github"
+    url: "https://github.com/devlander/discord-notify-action"
+  - label: "Issues"
+    icon: "fas fa-fw fa-bug"
+    url: "https://github.com/devlander/discord-notify-action/issues"
+  - label: "Discussions"
+    icon: "fas fa-fw fa-comments"
+    url: "https://github.com/devlander/discord-notify-action/discussions"
+  - label: "License"
+    icon: "fas fa-fw fa-file-alt"
+    url: "https://github.com/devlander/discord-notify-action/blob/main/LICENSE" 

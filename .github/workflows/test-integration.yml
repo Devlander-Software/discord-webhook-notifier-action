@@ -1,0 +1,118 @@
+name: Integration Tests
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+  push:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup test environment
+      run: |
+        echo "Setting up integration test environment..."
+        # Create test webhook URL (this would be a real webhook in production)
+        echo "DISCORD_WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }}" >> $GITHUB_ENV
+        
+    - name: Run basic integration tests
+      run: |
+        echo "Running basic integration tests..."
+        ./scripts/test-integration.sh "$DISCORD_WEBHOOK_URL" basic
+        
+    - name: Run advanced feature tests
+      run: |
+        echo "Running advanced feature tests..."
+        ./scripts/test-integration.sh "$DISCORD_WEBHOOK_URL" advanced
+        
+    - name: Run failure scenario tests
+      run: |
+        echo "Running failure scenario tests..."
+        ./scripts/test-integration.sh "$DISCORD_WEBHOOK_URL" failure
+        
+    - name: Run compatibility tests
+      run: |
+        echo "Running compatibility tests..."
+        ./scripts/test-integration.sh "$DISCORD_WEBHOOK_URL" compatibility
+        
+    - name: Run error handling tests
+      run: |
+        echo "Running error handling tests..."
+        ./scripts/test-integration.sh "$DISCORD_WEBHOOK_URL" errors
+        
+    - name: Test action in real workflow
+      run: |
+        echo "Testing action in simulated GitHub Actions environment..."
+        # Simulate GitHub Actions environment variables
+        export GITHUB_WORKFLOW="Integration Test"
+        export GITHUB_JOB="test-action"
+        export GITHUB_REPOSITORY="${{ github.repository }}"
+        export GITHUB_REF_NAME="${{ github.ref_name }}"
+        export GITHUB_SHA="${{ github.sha }}"
+        export GITHUB_ACTOR="${{ github.actor }}"
+        export GITHUB_RUN_ID="${{ github.run_id }}"
+        export GITHUB_SERVER_URL="${{ github.server_url }}"
+        
+        # Test the action with real GitHub context
+        DISCORD_WEBHOOK_URL="$DISCORD_WEBHOOK_URL" \
+        STATUS="success" \
+        WORKFLOW="$GITHUB_WORKFLOW" \
+        JOB="$GITHUB_JOB" \
+        REPO="$GITHUB_REPOSITORY" \
+        BRANCH="$GITHUB_REF_NAME" \
+        COMMIT="$GITHUB_SHA" \
+        ACTOR="$GITHUB_ACTOR" \
+        RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+        AUTO_DETECT="true" \
+        SMART_FORMATTING="true" \
+        USE_RICH_EMBEDS="true" \
+        bash scripts/notify.sh
+        
+    - name: Verify test results
+      run: |
+        echo "✅ Integration tests completed successfully"
+        echo "Check Discord channel for test notifications"
+        
+  cross-platform-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Test on ${{ matrix.os }}
+      run: |
+        echo "Testing on ${{ matrix.os }}..."
+        # Test basic functionality on different platforms
+        if [ -n "${{ secrets.DISCORD_WEBHOOK_URL }}" ]; then
+          ./scripts/test-integration.sh "${{ secrets.DISCORD_WEBHOOK_URL }}" basic
+        else
+          echo "Skipping webhook tests (no webhook URL provided)"
+        fi
+        
+  performance-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Performance test
+      run: |
+        echo "Running performance tests..."
+        # Test rapid-fire notifications to check rate limiting
+        if [ -n "${{ secrets.DISCORD_WEBHOOK_URL }}" ]; then
+          ./scripts/test-integration.sh "${{ secrets.DISCORD_WEBHOOK_URL }}" rate-limit
+        else
+          echo "Skipping rate limit tests (no webhook URL provided)"
+        fi 

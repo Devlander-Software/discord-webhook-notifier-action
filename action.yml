@@ -1,5 +1,5 @@
 name: "Discord Notify Action"
-description: "Send beautiful Discord notifications when your GitHub Actions workflows complete. Get real-time updates about your CI/CD pipeline status directly in your Discord server."
+description: "🚀 The most advanced Discord notification action for GitHub. Features smart defaults, rich formatting, enterprise features, and drop-in compatibility with other Discord actions."
 author: "Devlander Software"
 branding:
   icon: 'message-circle'
@@ -9,6 +9,15 @@ inputs:
   webhook:
     description: "Discord Webhook URL (create one in your Discord server settings)"
     required: true
+  # Smart defaults and auto-detection
+  auto_detect:
+    description: "Auto-detect workflow context and create smart notifications (true/false)"
+    required: false
+    default: "true"
+  smart_formatting:
+    description: "Use smart formatting with emojis, colors, and rich content (true/false)"
+    required: false
+    default: "true"
   # Compatibility/adapter inputs
   content:
     description: "Plain text message (outside embed)"
@@ -30,6 +39,36 @@ inputs:
     description: "Text-to-speech (true/false)"
     required: false
     default: "false"
+  # Advanced features
+  thread_id:
+    description: "Discord thread ID to send message to (optional)"
+    required: false
+    default: ""
+  flags:
+    description: "Message flags (SUPPRESS_EMBEDS, SUPPRESS_NOTIFICATIONS)"
+    required: false
+    default: ""
+  mention_users:
+    description: "Comma-separated list of user IDs to mention"
+    required: false
+    default: ""
+  mention_roles:
+    description: "Comma-separated list of role IDs to mention"
+    required: false
+    default: ""
+  # Enterprise features
+  retry_on_failure:
+    description: "Retry sending notification on failure (true/false)"
+    required: false
+    default: "true"
+  max_retries:
+    description: "Maximum number of retry attempts"
+    required: false
+    default: "3"
+  retry_delay:
+    description: "Delay between retries in seconds"
+    required: false
+    default: "5"
   # Existing inputs for backward compatibility
   status:
     description: "Job status (success, failure, cancelled)"
@@ -72,6 +111,14 @@ inputs:
     description: "Include job duration in the notification (true/false)"
     required: false
     default: "true"
+  include_changed_files:
+    description: "Include list of changed files (true/false)"
+    required: false
+    default: "false"
+  include_environment:
+    description: "Include environment info (OS, Node version, etc.) (true/false)"
+    required: false
+    default: "false"
   color_success:
     description: "Custom color for success status (hex color without #)"
     required: false
@@ -84,13 +131,30 @@ inputs:
     description: "Custom color for cancelled status (hex color without #)"
     required: false
     default: "9807270"
+  # Rich formatting options
+  use_rich_embeds:
+    description: "Use rich embeds with thumbnails, fields, and better formatting (true/false)"
+    required: false
+    default: "true"
+  show_workflow_duration:
+    description: "Show total workflow duration (true/false)"
+    required: false
+    default: "true"
+  show_job_breakdown:
+    description: "Show breakdown of individual jobs (true/false)"
+    required: false
+    default: "false"
+  compact_mode:
+    description: "Use compact mode for shorter notifications (true/false)"
+    required: false
+    default: "false"
 
 runs:
   using: "composite"
   steps:
     - name: Send Discord Notification
       shell: bash
-      run: bash ${{ github.action_path }}/notify.sh
+      run: bash ${{ github.action_path }}/scripts/notify.sh
       env:
         DISCORD_WEBHOOK_URL: ${{ inputs.webhook }}
         STATUS: ${{ inputs.status }}
@@ -101,17 +165,36 @@ runs:
         COMMIT: ${{ inputs.commit }}
         ACTOR: ${{ inputs.actor }}
         RUN_URL: ${{ inputs.run_url }}
+        # Smart defaults and auto-detection
+        AUTO_DETECT: ${{ inputs.auto_detect }}
+        SMART_FORMATTING: ${{ inputs.smart_formatting }}
         # Compatibility/adapter envs
         CONTENT: ${{ inputs.content }}
         EMBEDS: ${{ inputs.embeds }}
         TTS: ${{ inputs.tts }}
         CUSTOM_USERNAME: ${{ inputs.username }}
         CUSTOM_AVATAR_URL: ${{ inputs.avatar_url }}
+        # Advanced features
+        THREAD_ID: ${{ inputs.thread_id }}
+        FLAGS: ${{ inputs.flags }}
+        MENTION_USERS: ${{ inputs.mention_users }}
+        MENTION_ROLES: ${{ inputs.mention_roles }}
+        # Enterprise features
+        RETRY_ON_FAILURE: ${{ inputs.retry_on_failure }}
+        MAX_RETRIES: ${{ inputs.max_retries }}
+        RETRY_DELAY: ${{ inputs.retry_delay }}
         # Customization environment variables
         CUSTOM_TITLE: ${{ inputs.title }}
         CUSTOM_DESCRIPTION: ${{ inputs.description }}
         INCLUDE_COMMIT_MESSAGE: ${{ inputs.include_commit_message }}
         INCLUDE_DURATION: ${{ inputs.include_duration }}
+        INCLUDE_CHANGED_FILES: ${{ inputs.include_changed_files }}
+        INCLUDE_ENVIRONMENT: ${{ inputs.include_environment }}
         COLOR_SUCCESS: ${{ inputs.color_success }}
         COLOR_FAILURE: ${{ inputs.color_failure }}
         COLOR_CANCELLED: ${{ inputs.color_cancelled }}
+        # Rich formatting options
+        USE_RICH_EMBEDS: ${{ inputs.use_rich_embeds }}
+        SHOW_WORKFLOW_DURATION: ${{ inputs.show_workflow_duration }}
+        SHOW_JOB_BREAKDOWN: ${{ inputs.show_job_breakdown }}
+        COMPACT_MODE: ${{ inputs.compact_mode }}
