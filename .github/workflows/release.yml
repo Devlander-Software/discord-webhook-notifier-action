@@ -1,9 +1,8 @@
-name: Release
+name: Release Action
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
   release:
@@ -11,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        
       - name: Create Release
         uses: actions/create-release@v1
         env:
@@ -22,19 +21,19 @@ jobs:
           body: |
             ## What's Changed
             
-            - Beautiful Discord embeds with status-based colors
-            - Direct links to repository, commits, and workflow runs
-            - Support for success, failure, and cancelled job statuses
-            - Robust error handling and validation
+            This release includes:
+            - Enhanced Discord notification features
+            - Improved error handling and retry logic
+            - Better documentation and examples
+            - Organization-wide notification support
             
-            ## Usage
+            ## Installation
             
             ```yaml
-            - name: Notify Discord
-              uses: Devlander-Software/discord-webhook-notifier-action@v1
-              if: always()
+            - name: Discord Notification
+              uses: devlander/discord-webhook-notifier-action@v1
               with:
-                webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+                webhook: ${{ secrets.DISCORD_WEBHOOK }}
                 status: ${{ job.status }}
                 workflow: ${{ github.workflow }}
                 job: ${{ github.job }}
@@ -44,5 +43,16 @@ jobs:
                 actor: ${{ github.actor }}
                 run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             ```
+            
+            ## Documentation
+            
+            - [Installation Guide](https://devlander-software.github.io/discord-webhook-notifier-action/installation.html)
+            - [Configuration Options](https://devlander-software.github.io/discord-webhook-notifier-action/configuration.html)
+            - [Examples](https://devlander-software.github.io/discord-webhook-notifier-action/examples.html)
+            
+            ## Support
+            
+            - [Issues](https://github.com/devlander/discord-webhook-notifier-action/issues)
+            - [Discussions](https://github.com/devlander/discord-webhook-notifier-action/discussions)
           draft: false
           prerelease: false 
