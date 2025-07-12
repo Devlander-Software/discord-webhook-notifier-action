@@ -6,7 +6,7 @@ Thank you for your interest in contributing to Discord Notify Action! This docum
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in the [Issues](https://github.com/Devlander-Software/discord-notify-action/issues) section
+1. Check if the bug has already been reported in the [Issues](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues) section
 2. If not, create a new issue with:
    - A clear and descriptive title
    - Steps to reproduce the bug
@@ -16,7 +16,7 @@ Thank you for your interest in contributing to Discord Notify Action! This docum
 
 ### Suggesting Enhancements
 
-1. Check if the enhancement has already been suggested in the [Issues](https://github.com/Devlander-Software/discord-notify-action/issues) section
+1. Check if the enhancement has already been suggested in the [Issues](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues) section
 2. If not, create a new issue with:
    - A clear and descriptive title
    - A detailed description of the proposed enhancement
@@ -38,8 +38,8 @@ Thank you for your interest in contributing to Discord Notify Action! This docum
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Devlander-Software/discord-notify-action.git
-   cd discord-notify-action
+   git clone https://github.com/Devlander-Software/discord-webhook-notifier-action.git
+   cd discord-webhook-notifier-action
    ```
 
 2. Make your changes to the relevant files:

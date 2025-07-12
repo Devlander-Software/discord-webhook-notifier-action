@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord Notification
-        uses: Devlander-Software/discord-notify-action@production
+        uses: Devlander-Software/discord-webhook-notifier-action@production
         with:
           # Use organization secret (set this up in your org settings)
           webhook: ${{ secrets.ORG_DISCORD_WEBHOOK_URL }}

@@ -14,7 +14,7 @@ jobs:
       - name: Run Tests
         run: npm test
       - name: Notify Discord
-        uses: Devlander-Software/discord-notify-action/.github/workflows/org-discord-notify.yml@production
+        uses: Devlander-Software/discord-webhook-notifier-action/.github/workflows/org-discord-notify.yml@production
         if: always()
         with:
           status: ${{ job.status }}
@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Notify Discord
-        uses: Devlander-Software/discord-notify-action/.github/workflows/org-discord-notify.yml@production
+        uses: Devlander-Software/discord-webhook-notifier-action/.github/workflows/org-discord-notify.yml@production
         if: always()
         with:
           status: ${{ job.status }}
@@ -45,7 +45,7 @@ jobs:
       - name: Deploy
         run: npm run deploy
       - name: Notify Discord
-        uses: Devlander-Software/discord-notify-action/.github/workflows/org-discord-notify.yml@production
+        uses: Devlander-Software/discord-webhook-notifier-action/.github/workflows/org-discord-notify.yml@production
         if: always()
         with:
           status: ${{ job.status }}

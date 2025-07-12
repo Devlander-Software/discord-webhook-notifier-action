@@ -301,7 +301,7 @@ Test replacing existing Discord actions:
     content: "Build completed"
 
 # After (our action - should work with same config)
-- uses: devlander/discord-notify-action@v1
+- uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     content: "Build completed"

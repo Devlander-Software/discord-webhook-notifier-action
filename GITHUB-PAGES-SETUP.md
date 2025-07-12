@@ -28,7 +28,7 @@ This guide will help you enable GitHub Pages for your Discord Notify Action docu
 3. Look for the **Deploy Documentation** workflow
 4. Once completed, your site will be available at:
    ```
-   https://[your-username].github.io/discord-notify-action
+   https://[your-username].github.io/discord-webhook-notifier-action
    ```
 
 ## Step 4: Custom Domain (Optional)

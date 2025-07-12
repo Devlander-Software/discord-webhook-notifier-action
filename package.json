@@ -1,9 +1,9 @@
 {
-  "name": "discord-notify-action",
+  "name": "discord-webhook-notifier-action",
   "version": "1.0.0",
   "description": "The most advanced Discord notification action for GitHub Actions with unmatched customization and drop-in compatibility",
   "main": "action.yml",
-  "homepage": "https://devlander.github.io/discord-notify-action",
+  "homepage": "https://devlander.github.io/discord-webhook-notifier-action",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:serve": "cd docs && bundle exec jekyll serve",
@@ -40,10 +40,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Devlander-Software/discord-notify-action.git"
+    "url": "git+https://github.com/Devlander-Software/discord-webhook-notifier-action.git"
   },
   "bugs": {
-    "url": "https://github.com/Devlander-Software/discord-notify-action/issues"
+    "url": "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
   },
   "topics": [
     "github-actions",

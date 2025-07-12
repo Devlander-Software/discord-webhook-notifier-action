@@ -71,7 +71,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -88,7 +88,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -115,7 +115,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -135,7 +135,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -156,7 +156,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     raw_embed: |
@@ -208,7 +208,7 @@ Only send notifications for specific events:
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'pull_request')
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -219,7 +219,7 @@ Only send notifications for specific events:
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     mentions: ${{ github.ref == 'refs/heads/main' && '@production-team' || '@dev-team' }}
@@ -230,7 +230,7 @@ Only send notifications for specific events:
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   continue-on-error: true
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}

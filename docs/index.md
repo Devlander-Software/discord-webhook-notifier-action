@@ -11,14 +11,14 @@ description: The most advanced Discord notification action for GitHub Actions
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Ready-blue?logo=github-actions)](https://github.com/features/actions)
 [![Discord](https://img.shields.io/badge/Discord-Webhook-7289DA?logo=discord)](https://discord.com/developers/docs/resources/webhook)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-notify-action/actions)
+[![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-webhook-notifier-action/actions)
 [![Performance](https://img.shields.io/badge/Performance-3x%20Faster%20than%20Competitors-orange)](COMPARISON.md)
 
 ## Quick Start
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}

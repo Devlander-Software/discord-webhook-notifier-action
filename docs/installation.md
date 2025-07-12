@@ -65,7 +65,7 @@ Add this to your `.github/workflows/your-workflow.yml`:
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   if: always()
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -105,7 +105,7 @@ jobs:
       run: npm run build
       
     - name: Discord Notification
-      uses: devlander/discord-notify-action@v1
+      uses: devlander/discord-webhook-notifier-action@v1
       if: always()
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -136,8 +136,8 @@ You can also test locally using our test scripts:
 
 ```bash
 # Clone the repository
-git clone https://github.com/devlander/discord-notify-action.git
-cd discord-notify-action
+git clone https://github.com/devlander/discord-webhook-notifier-action.git
+cd discord-webhook-notifier-action
 
 # Test basic functionality
 ./scripts/test-integration.sh "YOUR_DISCORD_WEBHOOK_URL" basic
@@ -175,8 +175,8 @@ Now that you have the basic installation working:
 Need help with installation?
 
 - [Troubleshooting Guide](troubleshooting.html)
-- [GitHub Issues](https://github.com/devlander/discord-notify-action/issues)
-- [Discussions](https://github.com/devlander/discord-notify-action/discussions)
+- [GitHub Issues](https://github.com/devlander/discord-webhook-notifier-action/issues)
+- [Discussions](https://github.com/devlander/discord-webhook-notifier-action/discussions)
 
 ---
 

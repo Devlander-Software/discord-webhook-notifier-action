@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord Notification
-        uses: Devlander-Software/discord-notify-action@v1
+        uses: Devlander-Software/discord-webhook-notifier-action@v1
         with:
           # Use organization secret
           webhook: ${{ secrets.ORG_DISCORD_WEBHOOK_URL }}
@@ -256,7 +256,7 @@ EOF
 
 # Raw JSON embeds
 - name: Notify Discord
-  uses: Devlander-Software/discord-notify-action@v1
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.ORG_DISCORD_WEBHOOK_URL }}
     content: "Build completed!"
@@ -311,4 +311,4 @@ EOF
 
 ---
 
-**Need help?** Open an issue in the [Discord Notify Action repository](https://github.com/Devlander-Software/discord-notify-action/issues) or join our [Discussions](https://github.com/Devlander-Software/discord-notify-action/discussions). 
+**Need help?** Open an issue in the [Discord Notify Action repository](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues) or join our [Discussions](https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions). 

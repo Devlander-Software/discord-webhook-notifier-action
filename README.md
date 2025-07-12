@@ -5,15 +5,15 @@
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Ready-blue?logo=github-actions)](https://github.com/features/actions)
 [![Discord](https://img.shields.io/badge/Discord-Webhook-7289DA?logo=discord)](https://discord.com/developers/docs/resources/webhook)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-notify-action/actions)
+[![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-webhook-notifier-action/actions)
 [![Performance](https://img.shields.io/badge/Performance-3x%20Faster%20than%20Competitors-orange)](COMPARISON.md)
-[![Documentation](https://img.shields.io/badge/Documentation-GitHub%20Pages-blue)](https://devlander.github.io/discord-notify-action)
+[![Documentation](https://img.shields.io/badge/Documentation-GitHub%20Pages-blue)](https://devlander.github.io/discord-webhook-notifier-action)
 
 ## Quick Start
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -28,16 +28,16 @@
 
 ## Documentation
 
-📚 **Complete Documentation**: [GitHub Pages Site](https://devlander.github.io/discord-notify-action)
+📚 **Complete Documentation**: [GitHub Pages Site](https://devlander.github.io/discord-webhook-notifier-action)
 
-- [Installation Guide](https://devlander.github.io/discord-notify-action/installation.html)
-- [Configuration Options](https://devlander.github.io/discord-notify-action/configuration.html)
-- [Use Cases & Examples](https://devlander.github.io/discord-notify-action/examples.html)
-- [Migration Guide](https://devlander.github.io/discord-notify-action/migration.html)
-- [Organization Setup](https://devlander.github.io/discord-notify-action/organization.html)
-- [Testing & Quality](https://devlander.github.io/discord-notify-action/testing.html)
-- [API Reference](https://devlander.github.io/discord-notify-action/api.html)
-- [Troubleshooting](https://devlander.github.io/discord-notify-action/troubleshooting.html)
+- [Installation Guide](https://devlander.github.io/discord-webhook-notifier-action/installation.html)
+- [Configuration Options](https://devlander.github.io/discord-webhook-notifier-action/configuration.html)
+- [Use Cases & Examples](https://devlander.github.io/discord-webhook-notifier-action/examples.html)
+- [Migration Guide](https://devlander.github.io/discord-webhook-notifier-action/migration.html)
+- [Organization Setup](https://devlander.github.io/discord-webhook-notifier-action/organization.html)
+- [Testing & Quality](https://devlander.github.io/discord-webhook-notifier-action/testing.html)
+- [API Reference](https://devlander.github.io/discord-webhook-notifier-action/api.html)
+- [Troubleshooting](https://devlander.github.io/discord-webhook-notifier-action/troubleshooting.html)
 
 ## Why Choose This Action?
 
@@ -146,7 +146,7 @@ This action has been thoroughly tested with **100% test coverage** across all sc
 
 ### Quality Assurance Badges
 
-[![Tests Passing](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-notify-action/actions)
+[![Tests Passing](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-webhook-notifier-action/actions)
 [![Performance](https://img.shields.io/badge/Performance-3x%20Faster-orange)](COMPARISON.md)
 [![Reliability](https://img.shields.io/badge/Reliability-99.9%25%20Uptime-blue)](TESTING.md)
 [![Security](https://img.shields.io/badge/Security-No%20Vulnerabilities-red)](SECURITY.md)
@@ -157,8 +157,8 @@ This action has been thoroughly tested with **100% test coverage** across all sc
 **Run the test suite yourself:**
 ```bash
 # Clone the repository
-git clone https://github.com/devlander/discord-notify-action.git
-cd discord-notify-action
+git clone https://github.com/devlander/discord-webhook-notifier-action.git
+cd discord-webhook-notifier-action
 
 # Run comprehensive tests
 ./scripts/test-integration.sh "YOUR_DISCORD_WEBHOOK_URL" all
@@ -170,8 +170,8 @@ cd discord-notify-action
 ```
 
 **View automated test results:**
-- [Integration Tests](https://github.com/devlander/discord-notify-action/actions/workflows/test-integration.yml)
-- [Cross-Platform Tests](https://github.com/devlander/discord-notify-action/actions/workflows/test-integration.yml)
+- [Integration Tests](https://github.com/devlander/discord-webhook-notifier-action/actions/workflows/test-integration.yml)
+- [Cross-Platform Tests](https://github.com/devlander/discord-webhook-notifier-action/actions/workflows/test-integration.yml)
 - [Performance Benchmarks](COMPARISON.md)
 
 ---
@@ -204,7 +204,7 @@ cd discord-notify-action
 ### Quick Start
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -220,7 +220,7 @@ cd discord-notify-action
 ### Advanced Usage
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}
@@ -252,7 +252,7 @@ cd discord-notify-action
 ### 1. Simple Notifications
 ```yaml
 - name: Simple Discord Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   if: always()
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -272,7 +272,7 @@ cd discord-notify-action
   run: echo "Deploying..."
   
 - name: Discord Deployment Notification
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   if: always()
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -297,7 +297,7 @@ cd discord-notify-action
   run: npm test
   
 - name: Discord Test Results
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   if: always()
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -317,7 +317,7 @@ cd discord-notify-action
 ### 4. Compact Notifications for Busy Channels
 ```yaml
 - name: Quick Status Update
-  uses: devlander/discord-notify-action@v1
+  uses: devlander/discord-webhook-notifier-action@v1
   if: always()
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -384,7 +384,7 @@ For centralized Discord notifications across your organization, see [ORGANIZATIO
     args: 'Repo {{ EVENT_PAYLOAD.repository.full_name }} deployed.'
 
 # After
-- uses: devlander/discord-notify-action@v1
+- uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     content: "Repo ${{ github.repository }} deployed."
@@ -407,7 +407,7 @@ For centralized Discord notifications across your organization, see [ORGANIZATIO
     content: "Build completed!"
 
 # After
-- uses: devlander/discord-notify-action@v1
+- uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     content: "Build completed!"
@@ -439,8 +439,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development
 ```bash
 # Clone the repository
-git clone https://github.com/devlander/discord-notify-action.git
-cd discord-notify-action
+git clone https://github.com/devlander/discord-webhook-notifier-action.git
+cd discord-webhook-notifier-action
 
 # Test locally
 ./scripts/test-local.sh
@@ -460,8 +460,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Star this repository if you find it useful!**
 
-**Found a bug?** [Open an issue](https://github.com/devlander/discord-notify-action/issues)
+**Found a bug?** [Open an issue](https://github.com/devlander/discord-webhook-notifier-action/issues)
 
-**Have a feature request?** [Open an issue](https://github.com/devlander/discord-notify-action/issues)
+**Have a feature request?** [Open an issue](https://github.com/devlander/discord-webhook-notifier-action/issues)
 
 **Want to contribute?** [Read our guide](CONTRIBUTING.md)

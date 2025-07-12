@@ -169,9 +169,9 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/devlander/discord-notify-action/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/devlander/discord-notify-action/discussions)
-- **Documentation**: [README.md](README.md) and [Wiki](https://github.com/devlander/discord-notify-action/wiki)
+- **Issues**: [GitHub Issues](https://github.com/devlander/discord-webhook-notifier-action/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/devlander/discord-webhook-notifier-action/discussions)
+- **Documentation**: [README.md](README.md) and [Wiki](https://github.com/devlander/discord-webhook-notifier-action/wiki)
 
 ---
 

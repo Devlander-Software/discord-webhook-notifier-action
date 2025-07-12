@@ -136,7 +136,7 @@
     content: "Build completed"
 
 # After (our action - same config works!)
-- uses: devlander/discord-notify-action@v1
+- uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     content: "Build completed"
@@ -164,7 +164,7 @@
     args: 'Repo {{ EVENT_PAYLOAD.repository.full_name }} deployed.'
 
 # After (3x faster + smart features)
-- uses: devlander/discord-notify-action@v1
+- uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     content: "Repo ${{ github.repository }} deployed."
@@ -191,7 +191,7 @@
     embeds: '[{"title":"Status","description":"Success"}]'
 
 # After (faster + smarter)
-- uses: devlander/discord-notify-action@v1
+- uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     content: "Build completed!"
