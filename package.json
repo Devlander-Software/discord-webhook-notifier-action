@@ -1,0 +1,26 @@
+{
+  "name": "discord-notify-action",
+  "version": "1.0.0",
+  "description": "Send beautiful Discord notifications when your GitHub Actions workflows complete",
+  "main": "action.yml",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github-actions",
+    "discord",
+    "notifications",
+    "ci-cd",
+    "webhook"
+  ],
+  "author": "Devlander Software",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devlander-Software/discord-notify-action.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Devlander-Software/discord-notify-action/issues"
+  },
+  "homepage": "https://github.com/Devlander-Software/discord-notify-action#readme"
+} 

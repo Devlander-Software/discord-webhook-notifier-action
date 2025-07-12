@@ -1,0 +1,99 @@
+name: "Discord Notify Action"
+description: "Send beautiful Discord notifications when your GitHub Actions workflows complete. Get real-time updates about your CI/CD pipeline status directly in your Discord server."
+author: "Devlander Software"
+branding:
+  icon: 'message-circle'
+  color: 'blue'
+
+inputs:
+  webhook:
+    description: "Discord Webhook URL (create one in your Discord server settings)"
+    required: true
+  status:
+    description: "Job status (success, failure, cancelled)"
+    required: true
+  workflow:
+    description: "Workflow name"
+    required: true
+  job:
+    description: "Job name"
+    required: true
+  repo:
+    description: "Repository name (e.g., owner/repo)"
+    required: true
+  branch:
+    description: "Branch name"
+    required: true
+  commit:
+    description: "Commit SHA"
+    required: true
+  actor:
+    description: "GitHub actor (user who triggered the workflow)"
+    required: true
+  run_url:
+    description: "GitHub Actions run URL"
+    required: true
+  # Customization options
+  title:
+    description: "Custom title for the Discord message (default: status with icon)"
+    required: false
+    default: ""
+  description:
+    description: "Custom description for the Discord message (default: auto-generated)"
+    required: false
+    default: ""
+  username:
+    description: "Custom username for the Discord webhook (default: GitHub Actions)"
+    required: false
+    default: "GitHub Actions"
+  avatar_url:
+    description: "Custom avatar URL for the Discord webhook (default: GitHub logo)"
+    required: false
+    default: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+  include_commit_message:
+    description: "Include commit message in the notification (true/false)"
+    required: false
+    default: "true"
+  include_duration:
+    description: "Include job duration in the notification (true/false)"
+    required: false
+    default: "true"
+  color_success:
+    description: "Custom color for success status (hex color without #)"
+    required: false
+    default: "3066993"
+  color_failure:
+    description: "Custom color for failure status (hex color without #)"
+    required: false
+    default: "15158332"
+  color_cancelled:
+    description: "Custom color for cancelled status (hex color without #)"
+    required: false
+    default: "9807270"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Send Discord Notification
+      shell: bash
+      run: bash ${{ github.action_path }}/notify.sh
+      env:
+        DISCORD_WEBHOOK_URL: ${{ inputs.webhook }}
+        STATUS: ${{ inputs.status }}
+        WORKFLOW: ${{ inputs.workflow }}
+        JOB: ${{ inputs.job }}
+        REPO: ${{ inputs.repo }}
+        BRANCH: ${{ inputs.branch }}
+        COMMIT: ${{ inputs.commit }}
+        ACTOR: ${{ inputs.actor }}
+        RUN_URL: ${{ inputs.run_url }}
+        # Customization environment variables
+        CUSTOM_TITLE: ${{ inputs.title }}
+        CUSTOM_DESCRIPTION: ${{ inputs.description }}
+        CUSTOM_USERNAME: ${{ inputs.username }}
+        CUSTOM_AVATAR_URL: ${{ inputs.avatar_url }}
+        INCLUDE_COMMIT_MESSAGE: ${{ inputs.include_commit_message }}
+        INCLUDE_DURATION: ${{ inputs.include_duration }}
+        COLOR_SUCCESS: ${{ inputs.color_success }}
+        COLOR_FAILURE: ${{ inputs.color_failure }}
+        COLOR_CANCELLED: ${{ inputs.color_cancelled }}

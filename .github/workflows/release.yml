@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ## What's Changed
+            
+            - Beautiful Discord embeds with status-based colors
+            - Direct links to repository, commits, and workflow runs
+            - Support for success, failure, and cancelled job statuses
+            - Robust error handling and validation
+            
+            ## Usage
+            
+            ```yaml
+            - name: Notify Discord
+              uses: Devlander-Software/discord-notify-action@v1
+              if: always()
+              with:
+                webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+                status: ${{ job.status }}
+                workflow: ${{ github.workflow }}
+                job: ${{ github.job }}
+                repo: ${{ github.repository }}
+                branch: ${{ github.ref_name }}
+                commit: ${{ github.sha }}
+                actor: ${{ github.actor }}
+                run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            ```
+          draft: false
+          prerelease: false 

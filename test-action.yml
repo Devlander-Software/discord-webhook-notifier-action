@@ -1,0 +1,45 @@
+name: Test Discord Notify Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-success:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Success
+        run: echo "This is a successful job"
+        
+      - name: Notify Discord - Success
+        uses: ./
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          workflow: ${{ github.workflow }}
+          job: ${{ github.job }}
+          repo: ${{ github.repository }}
+          branch: ${{ github.ref_name }}
+          commit: ${{ github.sha }}
+          actor: ${{ github.actor }}
+          run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+  test-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Failure
+        run: exit 1
+        
+      - name: Notify Discord - Failure
+        uses: ./
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          workflow: ${{ github.workflow }}
+          job: ${{ github.job }}
+          repo: ${{ github.repository }}
+          branch: ${{ github.ref_name }}
+          commit: ${{ github.sha }}
+          actor: ${{ github.actor }}
+          run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} 
