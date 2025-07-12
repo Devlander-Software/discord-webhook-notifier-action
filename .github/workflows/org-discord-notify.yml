@@ -1,0 +1,93 @@
+name: Organization Discord Notify
+
+on:
+  workflow_call:
+    inputs:
+      # Minimal required inputs - everything else is centralized
+      status:
+        description: "Job status (success, failure, cancelled)"
+        required: true
+        type: string
+      workflow:
+        description: "Workflow name"
+        required: true
+        type: string
+      job:
+        description: "Job name"
+        required: true
+        type: string
+      # Optional overrides
+      custom_title:
+        description: "Custom title (optional)"
+        required: false
+        type: string
+        default: ""
+      custom_description:
+        description: "Custom description (optional)"
+        required: false
+        type: string
+        default: ""
+      custom_username:
+        description: "Custom username (optional)"
+        required: false
+        type: string
+        default: "Devlander CI/CD"
+      custom_avatar:
+        description: "Custom avatar URL (optional)"
+        required: false
+        type: string
+        default: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+      # Advanced options
+      include_commit_message:
+        description: "Include commit message"
+        required: false
+        type: string
+        default: "true"
+      include_duration:
+        description: "Include duration"
+        required: false
+        type: string
+        default: "true"
+      color_success:
+        description: "Success color (hex without #)"
+        required: false
+        type: string
+        default: "00ff00"
+      color_failure:
+        description: "Failure color (hex without #)"
+        required: false
+        type: string
+        default: "ff0000"
+      color_cancelled:
+        description: "Cancelled color (hex without #)"
+        required: false
+        type: string
+        default: "808080"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification
+        uses: Devlander-Software/discord-notify-action@production
+        with:
+          # Use organization secret (set this up in your org settings)
+          webhook: ${{ secrets.ORG_DISCORD_WEBHOOK_URL }}
+          status: ${{ inputs.status }}
+          workflow: ${{ inputs.workflow }}
+          job: ${{ inputs.job }}
+          repo: ${{ github.repository }}
+          branch: ${{ github.ref_name }}
+          commit: ${{ github.sha }}
+          actor: ${{ github.actor }}
+          run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # Custom options
+          title: ${{ inputs.custom_title }}
+          description: ${{ inputs.custom_description }}
+          username: ${{ inputs.custom_username }}
+          avatar_url: ${{ inputs.custom_avatar }}
+          include_commit_message: ${{ inputs.include_commit_message }}
+          include_duration: ${{ inputs.include_duration }}
+          color_success: ${{ inputs.color_success }}
+          color_failure: ${{ inputs.color_failure }}
+          color_cancelled: ${{ inputs.color_cancelled }} 

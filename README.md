@@ -113,6 +113,25 @@ A powerful, feature-rich GitHub Action that sends beautiful Discord notification
 
 ### Install in 30 Seconds
 
+**Individual Repository:**
+```yaml
+- name: Notify Discord
+  uses: Devlander-Software/discord-notify-action@v1
+  if: always()
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    status: ${{ job.status }}
+    workflow: ${{ github.workflow }}
+    job: ${{ github.job }}
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+```
+
+**🏢 Organization-Wide Setup:** See our [Organization Setup Guide](ORGANIZATION-SETUP.md) for centralized notifications across all repositories.
+
 ```yaml
 - name: Notify Discord
   uses: Devlander-Software/discord-notify-action@v1
@@ -162,6 +181,7 @@ A powerful, feature-rich GitHub Action that sends beautiful Discord notification
 | **Local Testing** | ✅ Comprehensive scripts | ❌ None |
 | **Error Handling** | ✅ Enterprise-grade | ⚠️ Basic |
 | **Documentation** | ✅ Extensive guides | ⚠️ Minimal |
+| **Organization Setup** | ✅ Complete guide | ❌ None |
 | **Open Source** | ✅ MIT License | ⚠️ Various licenses |
 | **Active Maintenance** | ✅ Regular updates | ⚠️ Inconsistent |
 
@@ -358,6 +378,7 @@ If this action helps you, consider:
 ## 📚 **Additional Resources**
 
 - 📖 **[Full Documentation](https://github.com/Devlander-Software/discord-notify-action#readme)**
+- 🏢 **[Organization Setup Guide](ORGANIZATION-SETUP.md)** - Set up centralized notifications for your entire organization
 - 🔄 **[Changelog](CHANGELOG.md)** - See what's new
 - 🛡️ **[Security Policy](SECURITY.md)** - Report security issues
 - 💬 **[Discussions](https://github.com/Devlander-Software/discord-notify-action/discussions)** - Ask questions and share ideas
