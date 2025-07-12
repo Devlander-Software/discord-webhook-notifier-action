@@ -33,9 +33,22 @@ CUSTOM_USERNAME=${CUSTOM_USERNAME:-"GitHub Actions"}
 CUSTOM_AVATAR_URL=${CUSTOM_AVATAR_URL:-"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"}
 INCLUDE_COMMIT_MESSAGE=${INCLUDE_COMMIT_MESSAGE:-"true"}
 INCLUDE_DURATION=${INCLUDE_DURATION:-"true"}
-COLOR_SUCCESS=${COLOR_SUCCESS:-"3066993"}
-COLOR_FAILURE=${COLOR_FAILURE:-"15158332"}
-COLOR_CANCELLED=${COLOR_CANCELLED:-"9807270"}
+
+# Convert hex colors to decimal if needed
+convert_hex_to_decimal() {
+    local hex=$1
+    if [[ $hex =~ ^[0-9a-fA-F]{6}$ ]]; then
+        # Convert hex to decimal
+        printf "%d" "0x$hex"
+    else
+        # Already decimal, return as is
+        echo "$hex"
+    fi
+}
+
+COLOR_SUCCESS=$(convert_hex_to_decimal "${COLOR_SUCCESS:-"3066993"}")
+COLOR_FAILURE=$(convert_hex_to_decimal "${COLOR_FAILURE:-"15158332"}")
+COLOR_CANCELLED=$(convert_hex_to_decimal "${COLOR_CANCELLED:-"9807270"}")
 
 STATUS_COLOR=""
 STATUS_ICON=""
@@ -96,6 +109,29 @@ else
 **[View Run]($RUN_URL)**"
 fi
 
+# Read compatibility/adapter envs
+CONTENT=${CONTENT:-""}
+EMBEDS=${EMBEDS:-""}
+TTS=${TTS:-"false"}
+
+# If EMBEDS is set, use it as the embeds array (raw JSON)
+if [ -n "$EMBEDS" ]; then
+    PAYLOAD=$(jq -n \
+      --arg content "$CONTENT" \
+      --argjson embeds "$EMBEDS" \
+      --arg username "$CUSTOM_USERNAME" \
+      --arg avatar_url "$CUSTOM_AVATAR_URL" \
+      --arg tts "$TTS" \
+      '{
+        content: $content,
+        username: $username,
+        avatar_url: $avatar_url,
+        tts: ($tts == "true"),
+        embeds: $embeds
+      }'
+    )
+    echo "Sending Discord notification (raw embeds mode)"
+else
 # Create the JSON payload with proper escaping
 PAYLOAD=$(jq -n \
   --arg username "$CUSTOM_USERNAME" \
@@ -105,9 +141,13 @@ PAYLOAD=$(jq -n \
   --arg color "$STATUS_COLOR" \
   --arg footer "Workflow: $WORKFLOW • Job: $JOB" \
   --arg timestamp "$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")" \
+  --arg content "$CONTENT" \
+  --arg tts "$TTS" \
   '{
+    content: $content,
     username: $username,
     avatar_url: $avatar_url,
+    tts: ($tts == "true"),
     embeds: [{
       title: $title,
       description: $description,
@@ -117,8 +157,8 @@ PAYLOAD=$(jq -n \
     }]
   }'
 )
+fi
 
-echo "Sending Discord notification for status: $STATUS"
 echo "Using custom title: $([ -n "$CUSTOM_TITLE" ] && echo "Yes" || echo "No")"
 echo "Using custom description: $([ -n "$CUSTOM_DESCRIPTION" ] && echo "Yes" || echo "No")"
 

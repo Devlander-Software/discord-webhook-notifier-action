@@ -1,0 +1,134 @@
+name: Discord Notify
+
+on:
+  workflow_call:
+    inputs:
+      webhook:
+        description: "Discord Webhook URL"
+        required: true
+        type: string
+      status:
+        description: "Job status (success, failure, cancelled)"
+        required: true
+        type: string
+      workflow:
+        description: "Workflow name"
+        required: true
+        type: string
+      job:
+        description: "Job name"
+        required: true
+        type: string
+      repo:
+        description: "Repository name"
+        required: true
+        type: string
+      branch:
+        description: "Branch name"
+        required: true
+        type: string
+      commit:
+        description: "Commit SHA"
+        required: true
+        type: string
+      actor:
+        description: "GitHub actor"
+        required: true
+        type: string
+      run_url:
+        description: "GitHub Actions run URL"
+        required: true
+        type: string
+      # Optional inputs
+      content:
+        description: "Plain text message"
+        required: false
+        type: string
+        default: ""
+      username:
+        description: "Bot username"
+        required: false
+        type: string
+        default: "GitHub Actions"
+      avatar_url:
+        description: "Bot avatar URL"
+        required: false
+        type: string
+        default: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+      embeds:
+        description: "Raw JSON array of Discord embeds"
+        required: false
+        type: string
+        default: ""
+      tts:
+        description: "Text-to-speech"
+        required: false
+        type: string
+        default: "false"
+      title:
+        description: "Custom title"
+        required: false
+        type: string
+        default: ""
+      description:
+        description: "Custom description"
+        required: false
+        type: string
+        default: ""
+      include_commit_message:
+        description: "Include commit message"
+        required: false
+        type: string
+        default: "true"
+      include_duration:
+        description: "Include duration"
+        required: false
+        type: string
+        default: "true"
+      color_success:
+        description: "Success color"
+        required: false
+        type: string
+        default: "3066993"
+      color_failure:
+        description: "Failure color"
+        required: false
+        type: string
+        default: "15158332"
+      color_cancelled:
+        description: "Cancelled color"
+        required: false
+        type: string
+        default: "9807270"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Send Discord Notification
+        uses: ./
+        with:
+          webhook: ${{ inputs.webhook }}
+          status: ${{ inputs.status }}
+          workflow: ${{ inputs.workflow }}
+          job: ${{ inputs.job }}
+          repo: ${{ inputs.repo }}
+          branch: ${{ inputs.branch }}
+          commit: ${{ inputs.commit }}
+          actor: ${{ inputs.actor }}
+          run_url: ${{ inputs.run_url }}
+          content: ${{ inputs.content }}
+          username: ${{ inputs.username }}
+          avatar_url: ${{ inputs.avatar_url }}
+          embeds: ${{ inputs.embeds }}
+          tts: ${{ inputs.tts }}
+          title: ${{ inputs.title }}
+          description: ${{ inputs.description }}
+          include_commit_message: ${{ inputs.include_commit_message }}
+          include_duration: ${{ inputs.include_duration }}
+          color_success: ${{ inputs.color_success }}
+          color_failure: ${{ inputs.color_failure }}
+          color_cancelled: ${{ inputs.color_cancelled }} 
