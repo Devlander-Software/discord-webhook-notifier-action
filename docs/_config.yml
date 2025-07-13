@@ -68,6 +68,9 @@ social:
   - label: "Discussions"
     icon: "fas fa-fw fa-comments"
     url: "https://github.com/devlander-software/discord-webhook-notifier-action/discussions"
+  - label: "YouTube"
+    icon: "fab fa-fw fa-youtube"
+    url: "https://www.youtube.com/@devlanderjs"
 
 # Navigation
 header_pages:
@@ -92,6 +95,9 @@ footer:
   - label: "Discussions"
     icon: "fas fa-fw fa-comments"
     url: "https://github.com/devlander-software/discord-webhook-notifier-action/discussions"
+  - label: "YouTube"
+    icon: "fab fa-fw fa-youtube"
+    url: "https://www.youtube.com/@devlanderjs"
   - label: "License"
     icon: "fas fa-fw fa-file-alt"
     url: "https://github.com/devlander-software/discord-webhook-notifier-action/blob/production/LICENSE" 
