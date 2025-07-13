@@ -1,12 +1,12 @@
 title: Discord Webhook Notifier Action
-description: The most advanced Discord notification action for GitHub Actions
+description: The most advanced Discord webhook notification action for GitHub Actions
 url: "https://devlander.github.io"
 baseurl: "/discord-webhook-notifier-action"
 
 # GitHub Pages settings
 github:
   is_project_page: true
-  repository_url: https://github.com/devlander/discord-webhook-notifier-action
+  repository_url: https://github.com/Devlander-Software/discord-webhook-notifier-action
 
 # Build settings
 markdown: kramdown
@@ -61,36 +61,37 @@ author:
 social:
   - label: "GitHub"
     icon: "fab fa-fw fa-github"
-    url: "https://github.com/devlander/discord-webhook-notifier-action"
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action"
   - label: "Issues"
     icon: "fas fa-fw fa-bug"
-    url: "https://github.com/devlander/discord-webhook-notifier-action/issues"
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
   - label: "Discussions"
     icon: "fas fa-fw fa-comments"
-    url: "https://github.com/devlander/discord-webhook-notifier-action/discussions"
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions"
 
 # Navigation
 header_pages:
+  - README.md
   - installation.md
   - configuration.md
   - examples.md
-  - migration.md
-  - organization.md
-  - testing.md
-  - api.md
-  - troubleshooting.md
+  - guides/organization-setup.md
+  - guides/testing.md
+  - reference/comparison.md
+  - contributing.md
+  - security.md
 
 # Footer
 footer:
   - label: "GitHub"
     icon: "fab fa-fw fa-github"
-    url: "https://github.com/devlander/discord-webhook-notifier-action"
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action"
   - label: "Issues"
     icon: "fas fa-fw fa-bug"
-    url: "https://github.com/devlander/discord-webhook-notifier-action/issues"
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
   - label: "Discussions"
     icon: "fas fa-fw fa-comments"
-    url: "https://github.com/devlander/discord-webhook-notifier-action/discussions"
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions"
   - label: "License"
     icon: "fas fa-fw fa-file-alt"
-    url: "https://github.com/devlander/discord-webhook-notifier-action/blob/main/LICENSE" 
+    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/blob/production/LICENSE" 
