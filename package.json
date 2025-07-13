@@ -1,6 +1,6 @@
 {
   "name": "discord-webhook-notifier-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The most advanced Discord notification action for GitHub Actions with unmatched customization and drop-in compatibility",
   "main": "action.yml",
   "homepage": "https://devlander.github.io/discord-webhook-notifier-action",
