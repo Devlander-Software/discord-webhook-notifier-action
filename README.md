@@ -211,7 +211,6 @@ cd discord-webhook-notifier-action
 - **Thread Support**: Send notifications to specific Discord threads
 - **User/Role Mentions**: Mention specific users or roles
 - **Message Flags**: Suppress embeds or notifications when needed
-- **Message Editing**: Edit existing messages for progressive updates
 
 ### Drop-in Compatibility
 - **Raw JSON Embeds**: Full Discord embed support
@@ -267,44 +266,6 @@ cd discord-webhook-notifier-action
 ```
 
 ## Use Cases
-
-### **Message Editing Examples**
-
-**Progressive Status Updates:**
-```yaml
-- name: Edit Status Message
-  uses: Devlander-Software/discord-webhook-notifier-action@v1.0.1
-  with:
-    webhook: ${{ secrets.DISCORD_WEBHOOK }}
-    bot_token: ${{ secrets.DISCORD_BOT_TOKEN }}
-    message_id: "1234567890123456789"
-    edit_message: true
-    status: ${{ job.status }}
-    workflow: ${{ github.workflow }}
-    job: ${{ github.job }}
-    repo: ${{ github.repository }}
-    branch: ${{ github.ref_name }}
-    commit: ${{ github.sha }}
-    actor: ${{ github.actor }}
-    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-    title: "🚀 Deployment Status"
-```
-
-**Live Progress Tracking:**
-```yaml
-- name: Update Progress
-  uses: Devlander-Software/discord-webhook-notifier-action@v1.0.1
-  with:
-    webhook: ${{ secrets.DISCORD_WEBHOOK }}
-    bot_token: ${{ secrets.DISCORD_BOT_TOKEN }}
-    message_id: ${{ steps.get-message-id.outputs.id }}
-    edit_message: true
-    status: "success"
-    title: "📊 Progress: 75% Complete"
-    description: "Processing files... 150/200 completed"
-```
-
-📖 **Full Documentation**: [Message Editing Guide](docs/message-editing.md)
 
 ### 1. Simple Notifications
 ```yaml

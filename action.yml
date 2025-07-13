@@ -156,19 +156,6 @@ inputs:
     description: "Use compact mode for shorter notifications (true/false)"
     required: false
     default: "false"
-  # Message editing features
-  edit_message:
-    description: "Edit an existing message instead of sending a new one (true/false)"
-    required: false
-    default: "false"
-  message_id:
-    description: "Discord message ID to edit (required if edit_message is true)"
-    required: false
-    default: ""
-  bot_token:
-    description: "Discord bot token for editing messages (required if edit_message is true)"
-    required: false
-    default: ""
 
 runs:
   using: "composite"
@@ -219,7 +206,3 @@ runs:
         SHOW_WORKFLOW_DURATION: ${{ inputs.show_workflow_duration }}
         SHOW_JOB_BREAKDOWN: ${{ inputs.show_job_breakdown }}
         COMPACT_MODE: ${{ inputs.compact_mode }}
-        # Message editing environment variables
-        EDIT_MESSAGE: ${{ inputs.edit_message }}
-        MESSAGE_ID: ${{ inputs.message_id }}
-        BOT_TOKEN: ${{ inputs.bot_token }}
