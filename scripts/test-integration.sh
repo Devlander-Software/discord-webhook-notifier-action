@@ -79,7 +79,7 @@ test_basic_workflow() {
     SMART_FORMATTING="true" \
     USE_RICH_EMBEDS="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     print_success "Basic workflow test completed"
@@ -110,7 +110,7 @@ test_advanced_features() {
     MAX_RETRIES="3" \
     RETRY_DELAY="2" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     print_success "Advanced features test completed"
@@ -136,7 +136,7 @@ test_failure_scenarios() {
     SMART_FORMATTING="true" \
     USE_RICH_EMBEDS="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     sleep 2
@@ -157,7 +157,7 @@ test_failure_scenarios() {
     SMART_FORMATTING="true" \
     USE_RICH_EMBEDS="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     print_success "Failure scenarios test completed"
@@ -186,7 +186,7 @@ test_rate_limiting() {
         MAX_RETRIES="3" \
         RETRY_DELAY="1" \
         CUSTOM_USERNAME="Integration Test Bot" \
-        CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+        CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
         bash scripts/notify.sh
         
         sleep 1
@@ -213,7 +213,7 @@ test_workflow_types() {
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     sleep 2
@@ -232,7 +232,7 @@ test_workflow_types() {
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     sleep 2
@@ -251,7 +251,7 @@ test_workflow_types() {
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     print_success "Workflow types test completed"
@@ -275,7 +275,7 @@ test_compact_mode() {
     COMPACT_MODE="true" \
     SMART_FORMATTING="true" \
     CUSTOM_USERNAME="Integration Test Bot" \
-    CUSTOM_AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    CUSTOM_AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     bash scripts/notify.sh
     
     print_success "Compact mode test completed"
@@ -291,7 +291,7 @@ test_raw_embeds() {
     CONTENT="Integration test with custom embed" \
     EMBEDS='[{"title":"Custom Integration Test","description":"This embed was created using raw JSON","color":16711680,"fields":[{"name":"Test Field","value":"Integration test successful","inline":true},{"name":"Status","value":"✅ Working","inline":true}],"footer":{"text":"Integration Test Suite"}}]' \
     USERNAME="Integration Test Bot" \
-    AVATAR_URL="https://cdn.discordapp.com/embed/avatars/0.png" \
+    AVATAR_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/test-bot-avatar.png" \
     TTS="false" \
     bash scripts/notify.sh
     

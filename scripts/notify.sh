@@ -35,7 +35,7 @@ SMART_FORMATTING=${SMART_FORMATTING:-"true"}
 CUSTOM_TITLE=${CUSTOM_TITLE:-""}
 CUSTOM_DESCRIPTION=${CUSTOM_DESCRIPTION:-""}
 CUSTOM_USERNAME=${CUSTOM_USERNAME:-"GitHub Actions"}
-CUSTOM_AVATAR_URL=${CUSTOM_AVATAR_URL:-"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"}
+CUSTOM_AVATAR_URL=${CUSTOM_AVATAR_URL:-"https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png"}
 INCLUDE_COMMIT_MESSAGE=${INCLUDE_COMMIT_MESSAGE:-"true"}
 INCLUDE_DURATION=${INCLUDE_DURATION:-"true"}
 INCLUDE_CHANGED_FILES=${INCLUDE_CHANGED_FILES:-"false"}
@@ -290,13 +290,13 @@ else
         THUMBNAIL_URL=""
         case "$STATUS" in
           success)
-            THUMBNAIL_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            THUMBNAIL_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png"
             ;;
           failure)
-            THUMBNAIL_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            THUMBNAIL_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png"
             ;;
           *)
-            THUMBNAIL_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            THUMBNAIL_URL="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png"
             ;;
         esac
         
