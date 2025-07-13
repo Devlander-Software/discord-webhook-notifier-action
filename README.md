@@ -14,7 +14,7 @@
 
 ```yaml
 - name: Discord Notification
-  uses: devlander/discord-webhook-notifier-action@v1
+  uses: Devlander-Software/discord-webhook-notifier-action@v1.0.1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     status: ${{ job.status }}

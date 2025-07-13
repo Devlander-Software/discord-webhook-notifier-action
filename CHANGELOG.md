@@ -5,6 +5,14 @@ All notable changes to the Discord Notify Action will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2025-01-15
+
+### 🔧 Bug Fixes & Improvements
+- **Repository Name Fix**: Updated all documentation to use correct repository name `Devlander-Software/discord-webhook-notifier-action`
+- **Version Consistency**: Updated package.json version to match changelog
+- **Documentation Cleanup**: Removed message editing references to keep action focused on webhook notifications
+- **Template Updates**: Fixed template workflow to use correct action references
+
 ## [Unreleased]
 
 ### 🚀 Major Enhancements
