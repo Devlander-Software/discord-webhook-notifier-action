@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Notification Examples</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #36393f;
+            color: #dcddde;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .discord-message {
+            background-color: #2f3136;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            max-width: 600px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background: linear-gradient(45deg, #7289da, #5865f2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .username {
+            font-weight: 600;
+            color: #fff;
+            margin-right: 8px;
+        }
+        
+        .timestamp {
+            color: #72767d;
+            font-size: 0.8em;
+        }
+        
+        .embed {
+            background-color: #2f3136;
+            border-left: 4px solid;
+            border-radius: 4px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+        
+        .embed.success {
+            border-left-color: #57f287;
+        }
+        
+        .embed.failure {
+            border-left-color: #ed4245;
+        }
+        
+        .embed.warning {
+            border-left-color: #faa61a;
+        }
+        
+        .embed.info {
+            border-left-color: #7289da;
+        }
+        
+        .embed-title {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .embed-description {
+            color: #dcddde;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .embed-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .embed-field {
+            background-color: #40444b;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .embed-field-name {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+        }
+        
+        .embed-field-value {
+            color: #dcddde;
+            font-size: 0.9em;
+        }
+        
+        .embed-footer {
+            color: #72767d;
+            font-size: 0.8em;
+            margin-top: 8px;
+        }
+        
+        .compact {
+            padding: 8px 12px;
+        }
+        
+        .compact .embed {
+            padding: 8px;
+        }
+        
+        .compact .embed-fields {
+            grid-template-columns: 1fr;
+            gap: 6px;
+        }
+        
+        .section-title {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="section-title">Discord Notification Examples</h1>
+    
+    <!-- Basic Success Notification -->
+    <div class="discord-message">
+        <div class="message-header">
+            <div class="avatar">🤖</div>
+            <span class="username">GitHub Actions Bot</span>
+            <span class="timestamp">Today at 2:30 PM</span>
+        </div>
+        <div class="embed success">
+            <div class="embed-title">✅ Build Successful</div>
+            <div class="embed-description">
+                **devlander-software/discord-webhook-notifier-action** build completed successfully on branch `main`
+            </div>
+            <div class="embed-fields">
+                <div class="embed-field">
+                    <div class="embed-field-name">Repository</div>
+                    <div class="embed-field-value">devlander-software/discord-webhook-notifier-action</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Branch</div>
+                    <div class="embed-field-value">main</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Commit</div>
+                    <div class="embed-field-value">a1b2c3d4e5</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Actor</div>
+                    <div class="embed-field-value">@landonwjohnson</div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                Duration: 2m 15s • [View Run](https://github.com/devlander-software/discord-webhook-notifier-action/actions/runs/123456789)
+            </div>
+        </div>
+    </div>
+    
+    <!-- Basic Failure Notification -->
+    <div class="discord-message">
+        <div class="message-header">
+            <div class="avatar">🤖</div>
+            <span class="username">GitHub Actions Bot</span>
+            <span class="timestamp">Today at 2:35 PM</span>
+        </div>
+        <div class="embed failure">
+            <div class="embed-title">❌ Build Failed</div>
+            <div class="embed-description">
+                **devlander-software/discord-webhook-notifier-action** build failed on branch `feature/new-feature`
+            </div>
+            <div class="embed-fields">
+                <div class="embed-field">
+                    <div class="embed-field-name">Repository</div>
+                    <div class="embed-field-value">devlander-software/discord-webhook-notifier-action</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Branch</div>
+                    <div class="embed-field-value">feature/new-feature</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Error</div>
+                    <div class="embed-field-value">Test suite failed</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Actor</div>
+                    <div class="embed-field-value">@landonwjohnson</div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                Duration: 1m 45s • [View Run](https://github.com/devlander-software/discord-webhook-notifier-action/actions/runs/123456790)
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rich Embed with Custom Branding -->
+    <div class="discord-message">
+        <div class="message-header">
+            <div class="avatar">🚀</div>
+            <span class="username">Deployment Bot</span>
+            <span class="timestamp">Today at 3:00 PM</span>
+        </div>
+        <div class="embed success">
+            <div class="embed-title">🚀 Production Deployment</div>
+            <div class="embed-description">
+                **v1.2.0** has been successfully deployed to production environment
+            </div>
+            <div class="embed-fields">
+                <div class="embed-field">
+                    <div class="embed-field-name">Version</div>
+                    <div class="embed-field-value">v1.2.0</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Environment</div>
+                    <div class="embed-field-value">Production</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Deployment Time</div>
+                    <div class="embed-field-value">2m 30s</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Status</div>
+                    <div class="embed-field-value">✅ Healthy</div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                Deployed by @landonwjohnson • [View Deployment](https://app.example.com/deployments/123)
+            </div>
+        </div>
+    </div>
+    
+    <!-- Compact Mode -->
+    <div class="discord-message">
+        <div class="message-header">
+            <div class="avatar">⚡</div>
+            <span class="username">CI Bot</span>
+            <span class="timestamp">Today at 3:15 PM</span>
+        </div>
+        <div class="embed success compact">
+            <div class="embed-title">✅ Tests Passed</div>
+            <div class="embed-description">
+                **devlander-software/discord-webhook-notifier-action** • main • @landonwjohnson
+            </div>
+            <div class="embed-footer">
+                [View Run](https://github.com/devlander-software/discord-webhook-notifier-action/actions/runs/123456791)
+            </div>
+        </div>
+    </div>
+    
+    <!-- Release Notification -->
+    <div class="discord-message">
+        <div class="message-header">
+            <div class="avatar">🎉</div>
+            <span class="username">Release Bot</span>
+            <span class="timestamp">Today at 4:00 PM</span>
+        </div>
+        <div class="embed info">
+            <div class="embed-title">🎉 New Release: v1.2.0</div>
+            <div class="embed-description">
+                **Discord Webhook Notifier Action v1.2.0** has been published!
+                
+                ✨ New Features:
+                • Enhanced error handling
+                • Improved performance
+                • Better documentation
+                
+                🐛 Bug Fixes:
+                • Fixed webhook timeout issues
+                • Resolved formatting problems
+            </div>
+            <div class="embed-fields">
+                <div class="embed-field">
+                    <div class="embed-field-name">Version</div>
+                    <div class="embed-field-value">v1.2.0</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Downloads</div>
+                    <div class="embed-field-value">1,234</div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                [Download Release](https://github.com/devlander-software/discord-webhook-notifier-action/releases/tag/v1.2.0)
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enterprise Features -->
+    <div class="discord-message">
+        <div class="message-header">
+            <div class="avatar">🏢</div>
+            <span class="username">Enterprise Bot</span>
+            <span class="timestamp">Today at 4:30 PM</span>
+        </div>
+        <div class="embed warning">
+            <div class="embed-title">⚠️ Security Scan Alert</div>
+            <div class="embed-description">
+                **devlander-software/discord-webhook-notifier-action** security scan detected potential vulnerabilities
+            </div>
+            <div class="embed-fields">
+                <div class="embed-field">
+                    <div class="embed-field-name">Severity</div>
+                    <div class="embed-field-value">Medium</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Vulnerabilities</div>
+                    <div class="embed-field-value">3 found</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Branch</div>
+                    <div class="embed-field-value">main</div>
+                </div>
+                <div class="embed-field">
+                    <div class="embed-field-name">Requires Action</div>
+                    <div class="embed-field-value">Yes</div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                @security-team @dev-team • [View Report](https://security.example.com/reports/456)
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

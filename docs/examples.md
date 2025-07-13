@@ -301,6 +301,46 @@ jobs:
     mention_users: "123456789012345678"
 ```
 
+## Screenshots
+
+See what the Discord notifications look like in action! These screenshots show different notification styles and configurations.
+
+### Basic Success Notification
+
+![Basic Success Notification](assets/images/screenshots/basic-success.png)
+
+*Simple success notification with default styling*
+
+### Basic Failure Notification
+
+![Basic Failure Notification](assets/images/screenshots/basic-failure.png)
+
+*Failure notification with error details*
+
+### Rich Embed with Custom Branding
+
+![Rich Embed Notification](assets/images/screenshots/rich-embed.png)
+
+*Advanced embed with custom colors, fields, and thumbnails*
+
+### Compact Mode
+
+![Compact Mode](assets/images/screenshots/compact-mode.png)
+
+*Compact notification for busy channels*
+
+### Release Notification
+
+![Release Notification](assets/images/screenshots/release-notification.png)
+
+*Special notification for new releases*
+
+### Enterprise Features
+
+![Enterprise Features](assets/images/screenshots/enterprise-features.png)
+
+*Notification with mentions, threads, and advanced features*
+
 ---
 
 **Need more examples?** Check out the [Configuration Guide](configuration.md) for all available options, or visit our [GitHub Discussions](https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions) for community examples. 

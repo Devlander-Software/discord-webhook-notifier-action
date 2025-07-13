@@ -446,16 +446,43 @@ For centralized Discord notifications across your organization, see [ORGANIZATIO
     run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 ```
 
-## Examples
+## Examples & Screenshots
 
-### Success Notification
-![Success Notification](https://via.placeholder.com/600x300/3066993/ffffff?text=Success+Notification+Example)
+See what the Discord notifications look like in action! These examples show different notification styles and configurations.
 
-### Failure Notification
-![Failure Notification](https://via.placeholder.com/600x300/15158332/ffffff?text=Failure+Notification+Example)
+### Basic Success Notification
+![Basic Success Notification](docs/assets/images/screenshots/basic-success.png)
 
-### Rich Embed Example
-![Rich Embed](https://via.placeholder.com/600x400/7289DA/ffffff?text=Rich+Embed+Example)
+*Simple success notification with default styling and green color scheme*
+
+### Basic Failure Notification
+![Basic Failure Notification](docs/assets/images/screenshots/basic-failure.png)
+
+*Failure notification with error details and red color scheme*
+
+### Rich Embed with Custom Branding
+![Rich Embed Notification](docs/assets/images/screenshots/rich-embed.png)
+
+*Advanced embed with custom colors, fields, thumbnails, and professional formatting*
+
+### Compact Mode
+![Compact Mode](docs/assets/images/screenshots/compact-mode.png)
+
+*Compact notification for busy channels with condensed information*
+
+### Release Notification
+![Release Notification](docs/assets/images/screenshots/release-notification.png)
+
+*Special notification for new releases with detailed changelog*
+
+### Enterprise Features
+![Enterprise Features](docs/assets/images/screenshots/enterprise-features.png)
+
+*Notification with mentions, threads, and advanced enterprise features*
+
+---
+
+**📖 More Examples**: Check out our [complete examples guide](docs/examples.md) for detailed use cases and configuration options.
 
 ## Contributing
 
