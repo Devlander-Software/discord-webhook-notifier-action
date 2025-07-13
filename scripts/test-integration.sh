@@ -78,6 +78,8 @@ test_basic_workflow() {
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
     USE_RICH_EMBEDS="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     print_success "Basic workflow test completed"
@@ -107,6 +109,8 @@ test_advanced_features() {
     RETRY_ON_FAILURE="true" \
     MAX_RETRIES="3" \
     RETRY_DELAY="2" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     print_success "Advanced features test completed"
@@ -131,6 +135,8 @@ test_failure_scenarios() {
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
     USE_RICH_EMBEDS="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     sleep 2
@@ -150,6 +156,8 @@ test_failure_scenarios() {
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
     USE_RICH_EMBEDS="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     print_success "Failure scenarios test completed"
@@ -177,6 +185,8 @@ test_rate_limiting() {
         RETRY_ON_FAILURE="true" \
         MAX_RETRIES="3" \
         RETRY_DELAY="1" \
+        CUSTOM_USERNAME="Integration Test Bot" \
+        CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
         bash scripts/notify.sh
         
         sleep 1
@@ -202,6 +212,8 @@ test_workflow_types() {
     RUN_URL="https://github.com/devlander/awesome-app/actions/runs/1234567894" \
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     sleep 2
@@ -219,6 +231,8 @@ test_workflow_types() {
     RUN_URL="https://github.com/devlander/awesome-app/actions/runs/1234567895" \
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     sleep 2
@@ -236,6 +250,8 @@ test_workflow_types() {
     RUN_URL="https://github.com/devlander/awesome-app/actions/runs/1234567896" \
     AUTO_DETECT="true" \
     SMART_FORMATTING="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     print_success "Workflow types test completed"
@@ -258,6 +274,8 @@ test_compact_mode() {
     RUN_URL="https://github.com/devlander/awesome-app/actions/runs/1234567897" \
     COMPACT_MODE="true" \
     SMART_FORMATTING="true" \
+    CUSTOM_USERNAME="Integration Test Bot" \
+    CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
     bash scripts/notify.sh
     
     print_success "Compact mode test completed"
