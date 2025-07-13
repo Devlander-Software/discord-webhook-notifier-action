@@ -6,7 +6,7 @@ baseurl: "/discord-webhook-notifier-action"
 # GitHub Pages settings
 github:
   is_project_page: true
-  repository_url: https://github.com/Devlander-Software/discord-webhook-notifier-action
+  repository_url: https://github.com/devlander-software/discord-webhook-notifier-action
 
 # Build settings
 markdown: kramdown
@@ -61,13 +61,13 @@ author:
 social:
   - label: "GitHub"
     icon: "fab fa-fw fa-github"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action"
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action"
   - label: "Issues"
     icon: "fas fa-fw fa-bug"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action/issues"
   - label: "Discussions"
     icon: "fas fa-fw fa-comments"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions"
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action/discussions"
 
 # Navigation
 header_pages:
@@ -85,13 +85,13 @@ header_pages:
 footer:
   - label: "GitHub"
     icon: "fab fa-fw fa-github"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action"
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action"
   - label: "Issues"
     icon: "fas fa-fw fa-bug"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action/issues"
   - label: "Discussions"
     icon: "fas fa-fw fa-comments"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions"
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action/discussions"
   - label: "License"
     icon: "fas fa-fw fa-file-alt"
-    url: "https://github.com/Devlander-Software/discord-webhook-notifier-action/blob/production/LICENSE" 
+    url: "https://github.com/devlander-software/discord-webhook-notifier-action/blob/production/LICENSE" 
