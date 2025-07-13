@@ -80,6 +80,9 @@ social:
   - label: "Twitter"
     icon: "fab fa-fw fa-twitter"
     url: "https://x.com/devlanderjs"
+  - label: "Reddit"
+    icon: "fab fa-fw fa-reddit"
+    url: "https://www.reddit.com/user/landonwjohnson/m/fullstack_inner_circle/"
 
 # Navigation
 header_pages:
@@ -116,6 +119,9 @@ footer:
   - label: "Twitter"
     icon: "fab fa-fw fa-twitter"
     url: "https://x.com/devlanderjs"
+  - label: "Reddit"
+    icon: "fab fa-fw fa-reddit"
+    url: "https://www.reddit.com/user/landonwjohnson/m/fullstack_inner_circle/"
   - label: "License"
     icon: "fas fa-fw fa-file-alt"
     url: "https://github.com/devlander-software/discord-webhook-notifier-action/blob/production/LICENSE" 
