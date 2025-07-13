@@ -74,6 +74,9 @@ social:
   - label: "Facebook"
     icon: "fab fa-fw fa-facebook"
     url: "https://facebook.com/devlanderjs"
+  - label: "Instagram"
+    icon: "fab fa-fw fa-instagram"
+    url: "https://www.instagram.com/devlander.js"
 
 # Navigation
 header_pages:
@@ -104,6 +107,9 @@ footer:
   - label: "Facebook"
     icon: "fab fa-fw fa-facebook"
     url: "https://facebook.com/devlanderjs"
+  - label: "Instagram"
+    icon: "fab fa-fw fa-instagram"
+    url: "https://www.instagram.com/devlander.js"
   - label: "License"
     icon: "fas fa-fw fa-file-alt"
     url: "https://github.com/devlander-software/discord-webhook-notifier-action/blob/production/LICENSE" 
