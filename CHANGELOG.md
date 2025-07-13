@@ -67,7 +67,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Standard Inputs**: Compatible with other Discord actions
 - **Backward Compatibility**: All existing workflows continue to work
 
-## [1.0.0] - 2024-01-XX
+## [1.0.1] - 2025-01-15
+
+### 🏪 Marketplace Ready Release
+- **Code of Conduct**: Added Contributor Covenant Code of Conduct for community guidelines
+- **License Update**: Fixed copyright information in LICENSE file
+- **Marketplace Metadata**: Added marketplace badges and documentation section
+- **Organization Setup**: Created missing setup script for organization-wide notifications
+- **Template Fixes**: Updated template workflow with correct action references
+- **Documentation**: Enhanced README with marketplace installation instructions
+
+## [1.0.0] - 2024-01-15
 
 ### ✨ Initial Release
 - **Basic Discord Notifications**: Send notifications for GitHub Actions workflow status

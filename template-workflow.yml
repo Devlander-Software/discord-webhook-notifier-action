@@ -14,12 +14,18 @@ jobs:
       - name: Run Tests
         run: npm test
       - name: Notify Discord
-        uses: Devlander-Software/discord-webhook-notifier-action/.github/workflows/org-discord-notify.yml@production
+        uses: Devlander-Software/discord-webhook-notifier-action@v1.0.1
         if: always()
         with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
           workflow: ${{ github.workflow }}
           job: ${{ github.job }}
+          repo: ${{ github.repository }}
+          branch: ${{ github.ref_name }}
+          commit: ${{ github.sha }}
+          actor: ${{ github.actor }}
+          run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   build:
     runs-on: ubuntu-latest
@@ -29,12 +35,18 @@ jobs:
       - name: Build
         run: npm run build
       - name: Notify Discord
-        uses: Devlander-Software/discord-webhook-notifier-action/.github/workflows/org-discord-notify.yml@production
+        uses: Devlander-Software/discord-webhook-notifier-action@v1.0.1
         if: always()
         with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
           workflow: ${{ github.workflow }}
           job: ${{ github.job }}
+          repo: ${{ github.repository }}
+          branch: ${{ github.ref_name }}
+          commit: ${{ github.sha }}
+          actor: ${{ github.actor }}
+          run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,11 +57,17 @@ jobs:
       - name: Deploy
         run: npm run deploy
       - name: Notify Discord
-        uses: Devlander-Software/discord-webhook-notifier-action/.github/workflows/org-discord-notify.yml@production
+        uses: Devlander-Software/discord-webhook-notifier-action@v1.0.1
         if: always()
         with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
           workflow: ${{ github.workflow }}
           job: ${{ github.job }}
-          custom_title: "🚀 Deployment Status"
-          custom_username: "Deployment Bot" 
+          repo: ${{ github.repository }}
+          branch: ${{ github.ref_name }}
+          commit: ${{ github.sha }}
+          actor: ${{ github.actor }}
+          run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          title: "🚀 Deployment Status"
+          username: "Deployment Bot" 
