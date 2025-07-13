@@ -11,7 +11,7 @@ fi
 
 WEBHOOK_URL="$1"
 
-echo "🧪 Testing Discord Notify Action Customization Options"
+echo "🧪 Testing Discord Webhook Notifier Action Customization Options"
 echo "====================================================="
 
 # Test 1: Custom title and description
@@ -26,7 +26,7 @@ export COMMIT="abc1234567890abcdef1234567890abcdef1234"
 export ACTOR="landon"
 export RUN_URL="https://github.com/Devlander-Software/discord-webhook-notifier-action/actions/runs/123456789"
 export CUSTOM_TITLE="🚀 Custom Test Notification"
-export CUSTOM_DESCRIPTION="This is a **custom test** with **markdown** formatting!\n\nTesting the Discord Notify Action customization features."
+export CUSTOM_DESCRIPTION="This is a **custom test** with **markdown** formatting!\n\nTesting the Discord Webhook Notifier Action customization features."
 export CUSTOM_USERNAME="Test Bot"
 export CUSTOM_AVATAR_URL="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
 export INCLUDE_COMMIT_MESSAGE="true"

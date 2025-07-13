@@ -1,6 +1,6 @@
 # GitHub Pages Setup Guide
 
-This guide will help you enable GitHub Pages for your Discord Notify Action documentation.
+This guide will help you enable GitHub Pages for your Discord Webhook Notifier Action documentation.
 
 ## Prerequisites
 

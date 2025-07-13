@@ -8,7 +8,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in Discord Notify Action, please follow these steps:
+If you discover a security vulnerability in Discord Webhook Notifier Action, please follow these steps:
 
 1. **Do NOT create a public GitHub issue** for the vulnerability
 2. **Email the maintainers** at [landon@devlander.software](mailto:landon@devlander.software) with:
@@ -59,4 +59,4 @@ For security-related questions or concerns, please contact:
 - Email: [landon@devlander.software](mailto:landon@devlander.software)
 - GitHub: [@Devlander-Software](https://github.com/Devlander-Software)
 
-Thank you for helping keep Discord Notify Action secure! 🔒 
+Thank you for helping keep Discord Webhook Notifier Action secure! 🔒 

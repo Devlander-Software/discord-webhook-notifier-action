@@ -1,6 +1,6 @@
-# Contributing to Discord Notify Action
+# Contributing to Discord Webhook Notifier Action
 
-Thank you for your interest in contributing to Discord Notify Action! This document provides guidelines for contributing to this project.
+Thank you for your interest in contributing to Discord Webhook Notifier Action! This document provides guidelines for contributing to this project.
 
 ## How to Contribute
 
@@ -77,4 +77,4 @@ Before submitting a pull request, please ensure:
 
 If you have any questions about contributing, please open an issue or reach out to the maintainers.
 
-Thank you for contributing to Discord Notify Action! 🎉 
+Thank you for contributing to Discord Webhook Notifier Action! 🎉 

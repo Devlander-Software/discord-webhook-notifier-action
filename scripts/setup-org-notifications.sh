@@ -146,7 +146,7 @@ Centralized Discord notifications for all repositories in the organization.
 
 ## Configuration
 
-The workflow uses the Discord Notify Action with smart defaults:
+The workflow uses the Discord Webhook Notifier Action with smart defaults:
 - Auto-detection of workflow types
 - Rich embeds with fields and thumbnails
 - Retry logic for reliability

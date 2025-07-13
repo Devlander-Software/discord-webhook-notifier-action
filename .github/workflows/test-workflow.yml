@@ -1,4 +1,4 @@
-name: Test Discord Notify Action
+name: Test Discord Webhook Notifier Action
 
 on:
   push:
@@ -76,7 +76,7 @@ jobs:
           run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           # Test customization options
           title: "🧪 Test Notification"
-          description: "This is a **test notification** with custom formatting!\n\nTesting the Discord Notify Action customization features."
+          description: "This is a **test notification** with custom formatting!\n\nTesting the Discord Webhook Notifier Action customization features."
           username: "Test Bot"
           color_success: "00ff00"
           color_failure: "ff0000"

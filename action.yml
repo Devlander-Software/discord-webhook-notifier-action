@@ -1,5 +1,5 @@
-name: "Discord Notify Action"
-description: "🚀 The most advanced Discord notification action for GitHub. Features smart defaults, rich formatting, enterprise features, and drop-in compatibility with other Discord actions."
+name: "Discord Webhook Notifier Action"
+description: "🚀 The most advanced Discord webhook notification action for GitHub. Features smart defaults, rich formatting, enterprise features, and drop-in compatibility with other Discord actions."
 author: "Devlander Software"
 branding:
   icon: 'message-circle'

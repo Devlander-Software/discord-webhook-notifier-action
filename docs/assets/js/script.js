@@ -1,4 +1,4 @@
-// Discord Notify Action Documentation JavaScript
+// Discord Webhook Notifier Action Documentation JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for anchor links

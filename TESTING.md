@@ -1,6 +1,6 @@
 # 🧪 Testing Guide
 
-> **Comprehensive testing strategy for the Discord Notify Action before publishing**
+> **Comprehensive testing strategy for the Discord Webhook Notifier Action before publishing**
 
 ## 📋 Testing Checklist
 
@@ -94,7 +94,7 @@
 Create a test repository with this workflow:
 
 ```yaml
-name: Test Discord Notify Action
+name: Test Discord Webhook Notifier Action
 
 on:
   push:

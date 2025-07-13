@@ -1,6 +1,6 @@
 # 🏆 Discord Action Comparison
 
-> **How our Discord Notify Action compares to the top competitors in the market**
+> **How our Discord Webhook Notifier Action compares to the top competitors in the market**
 
 ## 📊 Feature Comparison Matrix
 
@@ -248,7 +248,7 @@ Our action is positioned as the **premium choice** for Discord notifications:
 
 ## 🎯 Conclusion
 
-While other actions focus on basic functionality, our Discord Notify Action provides:
+While other actions focus on basic functionality, our Discord Webhook Notifier Action provides:
 
 1. **🚀 Performance**: 3x faster than competitors
 2. **🧠 Intelligence**: Smart auto-detection and formatting

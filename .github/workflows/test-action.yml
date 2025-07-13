@@ -1,4 +1,4 @@
-name: Test Discord Notify Action
+name: Test Discord Webhook Notifier Action
 
 on:
   workflow_dispatch:

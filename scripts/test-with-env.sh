@@ -10,7 +10,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}Discord Notify Action - Environment Test${NC}"
+echo -e "${BLUE}Discord Webhook Notifier Action - Environment Test${NC}"
 echo "=============================================="
 
 # Your Discord webhook URL
@@ -65,7 +65,7 @@ echo -e "${YELLOW}Test 3: Custom Title and Description${NC}"
 echo "----------------------------------------"
 export STATUS="success"
 export CUSTOM_TITLE="🚀 Custom Test Notification"
-export CUSTOM_DESCRIPTION="This is a **custom test** with **markdown** formatting!\n\nTesting the Discord Notify Action customization features."
+export CUSTOM_DESCRIPTION="This is a **custom test** with **markdown** formatting!\n\nTesting the Discord Webhook Notifier Action customization features."
 export CUSTOM_USERNAME="Test Bot"
 
 if bash notify.sh; then

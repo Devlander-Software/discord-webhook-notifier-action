@@ -1,6 +1,6 @@
 # Organization-Wide Discord Notifications Setup Guide
 
-This guide shows you how to set up centralized Discord notifications across your entire GitHub organization using the Discord Notify Action, so you don't have to repeat the same configuration in every repository.
+This guide shows you how to set up centralized Discord notifications across your entire GitHub organization using the Discord Webhook Notifier Action, so you don't have to repeat the same configuration in every repository.
 
 ## 🏢 Overview
 
@@ -306,9 +306,9 @@ EOF
 
 - [GitHub Organization Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)
 - [Reusable Workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
-- [Discord Notify Action Documentation](../README.md)
+- [Discord Webhook Notifier Action Documentation](../README.md)
 - [GitHub Actions Best Practices](https://docs.github.com/en/actions/learn-github-actions)
 
 ---
 
-**Need help?** Open an issue in the [Discord Notify Action repository](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues) or join our [Discussions](https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions). 
+**Need help?** Open an issue in the [Discord Webhook Notifier Action repository](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues) or join our [Discussions](https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions). 

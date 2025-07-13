@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Advanced Discord Notify Action Test Script
+# Advanced Discord Webhook Notifier Action Test Script
 # Tests all the new features: smart formatting, retry logic, threads, mentions, etc.
 
 set -e
@@ -47,7 +47,7 @@ fi
 WEBHOOK_URL="$1"
 TEST_TYPE="${2:-all}"
 
-print_header "🚀 Advanced Discord Notify Action Test Suite"
+print_header "🚀 Advanced Discord Webhook Notifier Action Test Suite"
 print_status "Testing webhook: ${WEBHOOK_URL:0:50}..."
 print_status "Test type: $TEST_TYPE"
 

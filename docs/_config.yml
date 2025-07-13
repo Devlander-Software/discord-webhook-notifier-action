@@ -1,4 +1,4 @@
-title: Discord Notify Action
+title: Discord Webhook Notifier Action
 description: The most advanced Discord notification action for GitHub Actions
 url: "https://devlander.github.io"
 baseurl: "/discord-webhook-notifier-action"

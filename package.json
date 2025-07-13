@@ -1,7 +1,7 @@
 {
   "name": "discord-webhook-notifier-action",
   "version": "1.0.2",
-  "description": "The most advanced Discord notification action for GitHub Actions with unmatched customization and drop-in compatibility",
+  "description": "The most advanced Discord webhook notification action for GitHub Actions with unmatched customization and drop-in compatibility",
   "main": "action.yml",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -53,9 +53,9 @@
   "bugs": {
     "url": "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
   },
-  "homepage": "https://github.com/marketplace/actions/discord-notify-action",
+  "homepage": "https://github.com/marketplace/actions/discord-webhook-notifier-action",
   "marketplace": {
-    "url": "https://github.com/marketplace/actions/discord-notify-action",
+    "url": "https://github.com/marketplace/actions/discord-webhook-notifier-action",
     "category": "Continuous Integration",
     "pricing": "Free"
   },

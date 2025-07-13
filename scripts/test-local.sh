@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Local testing script for Discord Notify Action
+# Local testing script for Discord Webhook Notifier Action
 # This script allows you to test the notification functionality locally
 
 set -e
@@ -11,7 +11,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${YELLOW}Discord Notify Action - Local Testing${NC}"
+echo -e "${YELLOW}Discord Webhook Notifier Action - Local Testing${NC}"
 echo "=============================================="
 
 # Check if webhook URL is provided

@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Installation Guide - Discord Notify Action
-description: How to install and set up the Discord Notify Action
+title: Installation Guide - Discord Webhook Notifier Action
+description: How to install and set up the Discord Webhook Notifier Action
 ---
 
 # Installation Guide
 
 ## Prerequisites
 
-Before installing the Discord Notify Action, you'll need:
+Before installing the Discord Webhook Notifier Action, you'll need:
 
 1. **A Discord Server** where you want to receive notifications
 2. **A Discord Webhook** URL (we'll help you create this)
@@ -64,7 +64,7 @@ https://discord.com/api/webhooks/1234567890123456789/abcdefghijklmnopqrstuvwxyz1
 Add this to your `.github/workflows/your-workflow.yml`:
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   if: always()
   with:
@@ -104,7 +104,7 @@ jobs:
     - name: Build application
       run: npm run build
       
-    - name: Discord Notification
+    - name: Discord Webhook Notification
       uses: devlander/discord-webhook-notifier-action@v1
       if: always()
       with:

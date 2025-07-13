@@ -1,11 +1,11 @@
-# Discord Notify Action
+# Discord Webhook Notifier Action
 
-> **The most advanced Discord notification action for GitHub Actions with unmatched customization and drop-in compatibility**
+> **The most advanced Discord webhook notification action for GitHub Actions with unmatched customization and drop-in compatibility**
 
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Ready-blue?logo=github-actions)](https://github.com/features/actions)
 [![Discord](https://img.shields.io/badge/Discord-Webhook-7289DA?logo=discord)](https://discord.com/developers/docs/resources/webhook)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-Available-brightgreen?logo=github)](https://github.com/marketplace/actions/discord-notify-action)
+[![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-Available-brightgreen?logo=github)](https://github.com/marketplace/actions/discord-webhook-notifier-action)
 [![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-webhook-notifier-action/actions)
 [![Performance](https://img.shields.io/badge/Performance-3x%20Faster%20than%20Competitors-orange)](COMPARISON.md)
 [![Documentation](https://img.shields.io/badge/Documentation-GitHub%20Pages-blue)](https://devlander.github.io/discord-webhook-notifier-action)
@@ -29,7 +29,7 @@
 
 ## 🏪 GitHub Marketplace
 
-This action is available on the [GitHub Marketplace](https://github.com/marketplace/actions/discord-notify-action) for easy discovery and installation.
+This action is available on the [GitHub Marketplace](https://github.com/marketplace/actions/discord-webhook-notifier-action) for easy discovery and installation.
 
 ### Why Publish on Marketplace?
 - **Easy Discovery**: Users can find your action through GitHub's search
@@ -39,7 +39,7 @@ This action is available on the [GitHub Marketplace](https://github.com/marketpl
 - **Featured Placement**: Popular actions get featured on the marketplace homepage
 
 ### Installation from Marketplace
-1. Go to the [GitHub Marketplace](https://github.com/marketplace/actions/discord-notify-action)
+1. Go to the [GitHub Marketplace](https://github.com/marketplace/actions/discord-webhook-notifier-action)
 2. Click "Use latest version"
 3. Select your repository
 4. Configure the action in your workflow

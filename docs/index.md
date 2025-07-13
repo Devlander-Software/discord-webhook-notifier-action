@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Discord Notify Action
-description: The most advanced Discord notification action for GitHub Actions
+title: Discord Webhook Notifier Action
+description: The most advanced Discord webhook notification action for GitHub Actions
 ---
 
-# Discord Notify Action
+# Discord Webhook Notifier Action
 
-> **The most advanced Discord notification action for GitHub Actions**
+> **The most advanced Discord webhook notification action for GitHub Actions**
 
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Ready-blue?logo=github-actions)](https://github.com/features/actions)
 [![Discord](https://img.shields.io/badge/Discord-Webhook-7289DA?logo=discord)](https://discord.com/developers/docs/resources/webhook)
@@ -17,7 +17,7 @@ description: The most advanced Discord notification action for GitHub Actions
 ## Quick Start
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}

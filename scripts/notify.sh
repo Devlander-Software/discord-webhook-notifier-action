@@ -3,7 +3,7 @@
 # Exit on any error
 set -e
 
-# Enhanced Discord Notify Action
+# Enhanced Discord Webhook Notifier Action
 # Features: Smart formatting, retry logic, thread support, mentions, rich embeds, enterprise features
 
 # Check if required environment variables are set

@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Configuration Options - Discord Notify Action
-description: Complete configuration guide for the Discord Notify Action
+title: Configuration Options - Discord Webhook Notifier Action
+description: Complete configuration guide for the Discord Webhook Notifier Action
 ---
 
 # Configuration Options
 
 ## Input Parameters
 
-The Discord Notify Action supports extensive configuration options for maximum flexibility.
+The Discord Webhook Notifier Action supports extensive configuration options for maximum flexibility.
 
 ### Required Parameters
 
@@ -70,7 +70,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 ### Basic Configuration
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -87,7 +87,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 ### Advanced Configuration
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -114,7 +114,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 ### Compact Mode
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -134,7 +134,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 ### Custom Content
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -155,7 +155,7 @@ The Discord Notify Action supports extensive configuration options for maximum f
 ### Raw JSON Embed
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -207,7 +207,7 @@ webhook: ${{ secrets.ORG_DISCORD_WEBHOOK_URL }}
 Only send notifications for specific events:
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'pull_request')
   with:
@@ -218,7 +218,7 @@ Only send notifications for specific events:
 ### 3. Different Configurations for Different Branches
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
@@ -229,7 +229,7 @@ Only send notifications for specific events:
 ### 4. Error Handling
 
 ```yaml
-- name: Discord Notification
+- name: Discord Webhook Notification
   uses: devlander/discord-webhook-notifier-action@v1
   continue-on-error: true
   with:

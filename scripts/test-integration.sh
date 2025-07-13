@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Integration Test Suite for Discord Notify Action
+# Integration Test Suite for Discord Webhook Notifier Action
 # Tests the action with real Discord webhooks and GitHub Actions scenarios
 
 set -e
