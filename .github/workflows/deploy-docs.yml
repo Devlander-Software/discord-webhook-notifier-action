@@ -31,12 +31,13 @@ jobs:
         bundler-cache: true
         
     - name: Setup Pages
+      id: pages
       uses: actions/configure-pages@v4
       
     - name: Build with Jekyll
       run: |
         cd docs
-        bundle exec jekyll build --baseurl "${{ steps.dap.outputs.base_path }}"
+        bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       env:
         JEKYLL_ENV: production
         
@@ -46,9 +47,6 @@ jobs:
         path: docs/_site
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/production'
