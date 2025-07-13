@@ -46,16 +46,23 @@ This action is available on the [GitHub Marketplace](https://github.com/marketpl
 
 ## Documentation
 
-📚 **Complete Documentation**: [GitHub Pages Site](https://devlander.github.io/discord-webhook-notifier-action)
+📚 **Complete Documentation**: [Documentation Index](docs/README.md)
 
-- [Installation Guide](https://devlander.github.io/discord-webhook-notifier-action/installation.html)
-- [Configuration Options](https://devlander.github.io/discord-webhook-notifier-action/configuration.html)
-- [Use Cases & Examples](https://devlander.github.io/discord-webhook-notifier-action/examples.html)
-- [Migration Guide](https://devlander.github.io/discord-webhook-notifier-action/migration.html)
-- [Organization Setup](https://devlander.github.io/discord-webhook-notifier-action/organization.html)
-- [Testing & Quality](https://devlander.github.io/discord-webhook-notifier-action/testing.html)
-- [API Reference](https://devlander.github.io/discord-webhook-notifier-action/api.html)
-- [Troubleshooting](https://devlander.github.io/discord-webhook-notifier-action/troubleshooting.html)
+### 🚀 Getting Started
+- [Installation Guide](docs/installation.md) - How to install and set up the action
+- [Configuration Options](docs/configuration.md) - Complete configuration reference
+- [Quick Start Examples](docs/examples.md) - Common use cases and examples
+
+### 📖 Guides
+- [Organization Setup](docs/guides/organization-setup.md) - Set up centralized notifications across your organization
+- [Testing Guide](docs/guides/testing.md) - Comprehensive testing strategies and scripts
+- [GitHub Pages Setup](docs/guides/github-pages-setup.md) - Set up documentation site
+
+### 📋 Reference
+- [Comparison with Other Actions](docs/reference/comparison.md) - How we compare to competitors
+- [Contributing Guidelines](docs/contributing.md) - How to contribute to the project
+- [Security Policy](docs/security.md) - Security and vulnerability reporting
+- [Code of Conduct](docs/code-of-conduct.md) - Community guidelines
 
 ## Why Choose This Action?
 

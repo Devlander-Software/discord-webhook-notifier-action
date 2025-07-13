@@ -306,7 +306,7 @@ EOF
 
 - [GitHub Organization Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)
 - [Reusable Workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
-- [Discord Webhook Notifier Action Documentation](../README.md)
+- [Discord Webhook Notifier Action Documentation](../../README.md)
 - [GitHub Actions Best Practices](https://docs.github.com/en/actions/learn-github-actions)
 
 ---
