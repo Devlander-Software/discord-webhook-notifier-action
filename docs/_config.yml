@@ -71,6 +71,9 @@ social:
   - label: "YouTube"
     icon: "fab fa-fw fa-youtube"
     url: "https://www.youtube.com/@devlanderjs"
+  - label: "Facebook"
+    icon: "fab fa-fw fa-facebook"
+    url: "https://facebook.com/devlanderjs"
 
 # Navigation
 header_pages:
@@ -98,6 +101,9 @@ footer:
   - label: "YouTube"
     icon: "fab fa-fw fa-youtube"
     url: "https://www.youtube.com/@devlanderjs"
+  - label: "Facebook"
+    icon: "fab fa-fw fa-facebook"
+    url: "https://facebook.com/devlanderjs"
   - label: "License"
     icon: "fas fa-fw fa-file-alt"
     url: "https://github.com/devlander-software/discord-webhook-notifier-action/blob/production/LICENSE" 
