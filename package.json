@@ -45,6 +45,12 @@
   "bugs": {
     "url": "https://github.com/Devlander-Software/discord-webhook-notifier-action/issues"
   },
+  "homepage": "https://github.com/marketplace/actions/discord-notify-action",
+  "marketplace": {
+    "url": "https://github.com/marketplace/actions/discord-notify-action",
+    "category": "Continuous Integration",
+    "pricing": "Free"
+  },
   "topics": [
     "github-actions",
     "discord",

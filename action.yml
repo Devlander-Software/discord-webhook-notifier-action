@@ -5,6 +5,14 @@ branding:
   icon: 'message-circle'
   color: 'blue'
 
+# Marketplace metadata
+# This action is ready for GitHub Marketplace publication
+# - Complete documentation: ✅
+# - Security policy: ✅  
+# - License: ✅
+# - Testing: ✅
+# - Release workflow: ✅
+
 inputs:
   webhook:
     description: "Discord Webhook URL (create one in your Discord server settings)"

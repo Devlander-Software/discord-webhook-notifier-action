@@ -11,7 +11,7 @@
 If you discover a security vulnerability in Discord Notify Action, please follow these steps:
 
 1. **Do NOT create a public GitHub issue** for the vulnerability
-2. **Email the maintainers** at [your-email@example.com](mailto:your-email@example.com) with:
+2. **Email the maintainers** at [landon@devlander.software](mailto:landon@devlander.software) with:
    - A detailed description of the vulnerability
    - Steps to reproduce the issue
    - Potential impact assessment

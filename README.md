@@ -5,6 +5,7 @@
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Ready-blue?logo=github-actions)](https://github.com/features/actions)
 [![Discord](https://img.shields.io/badge/Discord-Webhook-7289DA?logo=discord)](https://discord.com/developers/docs/resources/webhook)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-Available-brightgreen?logo=github)](https://github.com/marketplace/actions/discord-notify-action)
 [![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](https://github.com/devlander/discord-webhook-notifier-action/actions)
 [![Performance](https://img.shields.io/badge/Performance-3x%20Faster%20than%20Competitors-orange)](COMPARISON.md)
 [![Documentation](https://img.shields.io/badge/Documentation-GitHub%20Pages-blue)](https://devlander.github.io/discord-webhook-notifier-action)
@@ -25,6 +26,23 @@
     actor: ${{ github.actor }}
     run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 ```
+
+## 🏪 GitHub Marketplace
+
+This action is available on the [GitHub Marketplace](https://github.com/marketplace/actions/discord-notify-action) for easy discovery and installation.
+
+### Why Publish on Marketplace?
+- **Easy Discovery**: Users can find your action through GitHub's search
+- **Verified Badge**: Shows users the action is legitimate and maintained
+- **Usage Analytics**: Track how many people use your action
+- **Reviews & Ratings**: Community feedback helps improve the action
+- **Featured Placement**: Popular actions get featured on the marketplace homepage
+
+### Installation from Marketplace
+1. Go to the [GitHub Marketplace](https://github.com/marketplace/actions/discord-notify-action)
+2. Click "Use latest version"
+3. Select your repository
+4. Configure the action in your workflow
 
 ## Documentation
 
