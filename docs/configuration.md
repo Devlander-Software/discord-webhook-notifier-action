@@ -222,7 +222,7 @@ Only send notifications for specific events:
   uses: devlander/discord-webhook-notifier-action@v1
   with:
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
-    mentions: ${{ github.ref == 'refs/heads/main' && '@production-team' || '@dev-team' }}
+    mentions: {% raw %}${{ github.ref == 'refs/heads/main' && '@production-team' || '@dev-team' }}{% endraw %}
     # ... other parameters
 ```
 
