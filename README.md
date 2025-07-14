@@ -393,9 +393,66 @@ cd discord-webhook-notifier-action
 | `avatar_url` | Bot avatar URL | GitHub logo |
 | `tts` | Text-to-speech | `false` |
 
-## Organization Setup
+## 🏢 Organization-Wide Setup
 
-For centralized Discord notifications across your organization, see [ORGANIZATION-SETUP.md](ORGANIZATION-SETUP.md).
+Set up centralized Discord notifications across your entire organization so you don't have to repeat configuration in every repository.
+
+### Quick Organization Setup
+
+1. **Create Organization Secret**:
+   - Go to your GitHub organization settings
+   - Navigate to **Secrets and variables** → **Actions**
+   - Create secret: `ORG_DISCORD_WEBHOOK_URL`
+   - Set your Discord webhook URL
+
+2. **Create Reusable Workflow** (in any repository):
+   ```yaml
+   # .github/workflows/org-discord-notify.yml
+   name: Organization Discord Notify
+   
+   on:
+     workflow_call:
+       inputs:
+         status:
+           required: true
+           type: string
+         workflow:
+           required: true
+           type: string
+         job:
+           required: true
+           type: string
+   
+   jobs:
+     notify:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Send Discord Notification
+           uses: Devlander-Software/discord-webhook-notifier-action@v1
+           with:
+             webhook: ${{ secrets.ORG_DISCORD_WEBHOOK_URL }}
+             status: ${{ inputs.status }}
+             workflow: ${{ inputs.workflow }}
+             job: ${{ inputs.job }}
+             repo: ${{ github.repository }}
+             branch: ${{ github.ref_name }}
+             commit: ${{ github.sha }}
+             actor: ${{ github.actor }}
+             run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+   ```
+
+3. **Use in Any Repository**:
+   ```yaml
+   - name: Notify Discord
+     uses: your-org/your-repo/.github/workflows/org-discord-notify.yml@main
+     if: always()
+     with:
+       status: ${{ job.status }}
+       workflow: ${{ github.workflow }}
+       job: ${{ github.job }}
+   ```
+
+**📖 Complete Guide**: See [Organization Setup Guide](docs/guides/ORGANIZATION-SETUP.md) for detailed instructions and advanced configurations.
 
 ## Migration from Other Actions
 
@@ -450,39 +507,68 @@ For centralized Discord notifications across your organization, see [ORGANIZATIO
 
 See what the Discord notifications look like in action! These examples show different notification styles and configurations.
 
-### Basic Success Notification
-![Basic Success Notification](docs/assets/images/screenshots/basic-success.png)
+### Success and Failure Examples
+![Success and Failed Example](assets/images/screenshots/success-and-failed-example.png)
 
-*Simple success notification with default styling and green color scheme*
+*Side-by-side comparison of success and failure notifications with proper color coding*
 
-### Basic Failure Notification
-![Basic Failure Notification](docs/assets/images/screenshots/basic-failure.png)
+### Production Deployment
+![Production Deployment](assets/images/screenshots/production-deployment-example.png)
 
-*Failure notification with error details and red color scheme*
+*Production deployment notification with environment details and status*
 
-### Rich Embed with Custom Branding
-![Rich Embed Notification](docs/assets/images/screenshots/rich-embed.png)
+### Pull Request Merged
+![Pull Request Merged](assets/images/screenshots/pull-request-merged.png)
 
-*Advanced embed with custom colors, fields, thumbnails, and professional formatting*
+*Pull request merge notification with branch information and commit details*
 
-### Compact Mode
-![Compact Mode](docs/assets/images/screenshots/compact-mode.png)
+### Release Bot Example
+![Release Bot Example](assets/images/screenshots/release-bot-example.png)
 
-*Compact notification for busy channels with condensed information*
+*Release notification with version information and changelog details*
 
-### Release Notification
-![Release Notification](docs/assets/images/screenshots/release-notification.png)
+### Security Scan Alert
+![Security Scan Alert](assets/images/screenshots/security-scan-alert.png)
 
-*Special notification for new releases with detailed changelog*
+*Security scan alert with vulnerability details and severity levels*
 
-### Enterprise Features
-![Enterprise Features](docs/assets/images/screenshots/enterprise-features.png)
+### Alert Bot Critical Error
+![Alert Bot Critical Error](assets/images/screenshots/alert-bot-critical-error-example.png)
 
-*Notification with mentions, threads, and advanced enterprise features*
+*Critical error notification with detailed error information and stack traces*
+
+### Tests Passed Example
+![Tests Passed Example](assets/images/screenshots/tests-passed-example.png)
+
+*Test suite completion notification with test results and coverage*
 
 ---
 
 **📖 More Examples**: Check out our [complete examples guide](docs/examples.md) for detailed use cases and configuration options.
+
+### How to Generate These Examples
+
+You can generate similar notifications using our test scripts:
+
+```bash
+# Test basic functionality
+./scripts/test-basic.sh "YOUR_DISCORD_WEBHOOK_URL"
+
+# Test advanced features
+./scripts/test-advanced.sh "YOUR_DISCORD_WEBHOOK_URL"
+
+# Test custom configurations
+./scripts/test-custom.sh "YOUR_DISCORD_WEBHOOK_URL"
+
+# Run all tests
+./scripts/test-integration.sh "YOUR_DISCORD_WEBHOOK_URL" all
+```
+
+Or use the interactive HTML examples:
+```bash
+# Open the notification examples in your browser
+open notification-examples.html
+```
 
 ## Contributing
 
@@ -502,6 +588,21 @@ cd discord-webhook-notifier-action
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🏆 Comparison with Other Actions
+
+See how we compare to the top Discord notification actions:
+
+| Feature | Our Action | Ilshidur/action-discord | tsickert/discord-webhook | sarisia/actions-status-discord |
+|---------|------------|------------------------|-------------------------|--------------------------------|
+| **Speed** | ⚡ Composite Action | 🐌 Docker-based | 🐌 Node.js | ⚡ JavaScript |
+| **Smart Auto-Detection** | ✅ Workflow types, branches | ❌ None | ❌ None | ❌ None |
+| **Rich Embeds** | ✅ Fields, thumbnails, advanced | ❌ Basic only | ✅ Good | ✅ Good |
+| **Retry Logic** | ✅ Configurable (3 attempts) | ❌ None | ❌ None | ❌ None |
+| **Thread Support** | ✅ Full support | ❌ None | ✅ Yes | ❌ None |
+| **Organization Support** | ✅ Complete guide | ❌ None | ❌ None | ❌ None |
+
+**📊 [Full Comparison](docs/reference/COMPARISON.md)** - Detailed analysis and migration guides
+
 ## Acknowledgments
 
 - Inspired by the Discord developer community
@@ -512,8 +613,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Star this repository if you find it useful!**
 
-**Found a bug?** [Open an issue](https://github.com/devlander/discord-webhook-notifier-action/issues)
+**Found a bug?** [Open an issue](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues)
 
-**Have a feature request?** [Open an issue](https://github.com/devlander/discord-webhook-notifier-action/issues)
+**Have a feature request?** [Open an issue](https://github.com/Devlander-Software/discord-webhook-notifier-action/issues)
 
 **Want to contribute?** [Read our guide](CONTRIBUTING.md)
+
+**Need help?** [Join our Discord](https://discord.gg/devlander) for support and community discussions
