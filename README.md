@@ -512,35 +512,176 @@ See what the Discord notifications look like in action! These examples show diff
 
 *Side-by-side comparison of success and failure notifications with proper color coding*
 
+```yaml
+# Success notification
+- name: Discord Success Notification
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: success
+    workflow: "CI/CD Pipeline"
+    job: "Build and Test"
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+# Failure notification
+- name: Discord Failure Notification
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: failure
+    workflow: "CI/CD Pipeline"
+    job: "Build and Test"
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+```
+
 ### Production Deployment
 ![Production Deployment](assets/images/screenshots/production-deployment-example.png)
 
 *Production deployment notification with environment details and status*
 
-### Pull Request Merged
-![Pull Request Merged](assets/images/screenshots/pull-request-merged.png)
+```yaml
+- name: Deploy to Production
+  run: echo "Deploying to production..."
 
-*Pull request merge notification with branch information and commit details*
+- name: Discord Deployment Notification
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: ${{ job.status }}
+    workflow: "Production Deployment"
+    job: "Deploy to Production"
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    custom_title: "🚀 Production Deployment"
+    custom_username: "Deployment Bot"
+    include_environment: true
+    auto_detect: true
+    smart_formatting: true
+```
 
 ### Release Bot Example
 ![Release Bot Example](assets/images/screenshots/release-bot-example.png)
 
 *Release notification with version information and changelog details*
 
+```yaml
+- name: Create Release
+  run: echo "Creating release v1.2.0..."
+
+- name: Discord Release Notification
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: ${{ job.status }}
+    workflow: "Release Pipeline"
+    job: "Create Release"
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    custom_title: "🎉 New Release: v1.2.0"
+    custom_description: "**Discord Webhook Notifier Action v1.2.0** has been published!\n\n✨ New Features:\n• Enhanced error handling\n• Improved performance\n• Better documentation\n\n🐛 Bug Fixes:\n• Fixed webhook timeout issues\n• Resolved formatting problems"
+    custom_username: "Release Bot"
+    mention_roles: ${{ secrets.RELEASE_TEAM_ROLE_ID }}
+```
+
 ### Security Scan Alert
 ![Security Scan Alert](assets/images/screenshots/security-scan-alert.png)
 
 *Security scan alert with vulnerability details and severity levels*
+
+```yaml
+- name: Security Scan
+  run: echo "Running security scan..."
+
+- name: Discord Security Alert
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: ${{ job.status }}
+    workflow: "Security Scan"
+    job: "Vulnerability Check"
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    custom_title: "⚠️ Security Scan Alert"
+    custom_description: "**${{ github.repository }}** security scan detected potential vulnerabilities"
+    custom_username: "Security Bot"
+    mention_roles: ${{ secrets.SECURITY_TEAM_ROLE_ID }}
+    color_failure: "faa61a"
+    thread_id: ${{ secrets.SECURITY_THREAD_ID }}
+```
 
 ### Alert Bot Critical Error
 ![Alert Bot Critical Error](assets/images/screenshots/alert-bot-critical-error-example.png)
 
 *Critical error notification with detailed error information and stack traces*
 
+```yaml
+- name: Critical Error Alert
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  if: failure()
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: failure
+    workflow: ${{ github.workflow }}
+    job: ${{ github.job }}
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    custom_title: "🚨 Critical Error Alert"
+    custom_description: "**Critical error detected** in ${{ github.repository }}\n\nError: Database connection failed\nStack trace: Connection timeout after 30 seconds\nImpact: High - Affects all users"
+    custom_username: "Alert Bot"
+    mention_users: ${{ secrets.ONCALL_USER_ID }}
+    mention_roles: ${{ secrets.DEVOPS_ROLE_ID }}
+    color_failure: "ed4245"
+    retry_on_failure: true
+    max_retries: 5
+```
+
 ### Tests Passed Example
 ![Tests Passed Example](assets/images/screenshots/tests-passed-example.png)
 
 *Test suite completion notification with test results and coverage*
+
+```yaml
+- name: Run Tests
+  run: npm test
+
+- name: Discord Test Results
+  uses: Devlander-Software/discord-webhook-notifier-action@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    status: ${{ job.status }}
+    workflow: "Test Suite"
+    job: "Run Tests"
+    repo: ${{ github.repository }}
+    branch: ${{ github.ref_name }}
+    commit: ${{ github.sha }}
+    actor: ${{ github.actor }}
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    custom_title: "✅ Tests Passed"
+    custom_description: "**${{ github.repository }}** test suite completed successfully\n\n📊 Coverage: 95.2%\n🧪 Tests: 1,234 passed, 0 failed\n⏱️ Duration: 2m 15s"
+    custom_username: "Test Bot"
+    include_duration: true
+    compact_mode: true
+```
 
 ---
 
