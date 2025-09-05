@@ -3,130 +3,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Webhook Notifier Action - Advanced GitHub Actions Integration</title>
-    <meta name="description" content="The most advanced Discord webhook notification action for GitHub Actions with comprehensive security features, smart formatting, and enterprise capabilities.">
-    <meta name="keywords" content="github-actions, discord, notifications, ci-cd, webhook, security, enterprise">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://devlander-software.github.io/discord-webhook-notifier-action/">
-    <meta property="og:title" content="Discord Webhook Notifier Action - Advanced GitHub Actions Integration">
-    <meta property="og:description" content="The most advanced Discord webhook notification action for GitHub Actions with comprehensive security features, smart formatting, and enterprise capabilities.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png">
+    <title>Discord Webhook Notifier Action</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://devlander-software.github.io/discord-webhook-notifier-action/">
-    <meta property="twitter:title" content="Discord Webhook Notifier Action - Advanced GitHub Actions Integration">
-    <meta property="twitter:description" content="The most advanced Discord webhook notification action for GitHub Actions with comprehensive security features, smart formatting, and enterprise capabilities.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #5865f2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #5865f2;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #5865f2;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Discord Preview */
+        .discord-preview {
+            margin-top: 60px;
+        }
+
+        .discord-message {
+            background: #36393f;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .discord-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .discord-avatar {
+            width: 40px;
+            height: 40px;
+            background: #5865f2;
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .discord-username {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .discord-timestamp {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .discord-embed {
+            background: #2f3136;
+            border-left: 4px solid #00ff00;
+            padding: 16px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .embed-title {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .embed-description {
+            color: #dcddde;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .embed-code {
+            background: #1e2124;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #b9bbbe;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #5865f2, #764ba2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: #b9bbbe;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            color: #b9bbbe;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        /* Quick Start Section */
+        .quick-start {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+        }
+
+        .quick-start-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .steps {
+            list-style: none;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .step-number {
+            background: #5865f2;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .step-content p {
+            color: #b9bbbe;
+            font-size: 14px;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            color: #d4d4d4;
+            font-size: 14px;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            border: 1px solid #555;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: #444;
+        }
+
+        /* Security Section */
+        .security {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .security-features {
+            list-style: none;
+        }
+
+        .security-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .security-check {
+            color: #00ff00;
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+
+        .security-badge {
+            background: linear-gradient(135deg, #00ff00, #00cc00);
+            color: #000;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .security-rating {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .security-level {
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #5865f2, #4752c4);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-start-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fab fa-discord"></i>
-                <span>Discord Notifier</span>
-            </div>
-            <div class="nav-menu">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#security" class="nav-link">Security</a>
-                <a href="#examples" class="nav-link">Examples</a>
-                <a href="#docs" class="nav-link">Documentation</a>
-                <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" class="nav-link nav-cta" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav>
+        <div class="container">
+            <div class="logo">🤖 Discord Notifier</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#security">Security</a>
+                <a href="#start">Quick Start</a>
+                <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" target="_blank">GitHub</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
+        <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Enterprise Security</span>
+                    🛡️ Enterprise Security
                 </div>
-                <h1 class="hero-title">
-                    Advanced Discord Notifications for 
-                    <span class="gradient-text">GitHub Actions</span>
-                </h1>
-                <p class="hero-description">
-                    The most comprehensive Discord webhook notification action with smart formatting, 
-                    enterprise features, and bulletproof security. Perfect for CI/CD pipelines, 
-                    deployment monitoring, and team collaboration.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">🔒</div>
-                        <div class="stat-label">Enterprise Security</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">⚡</div>
-                        <div class="stat-label">Lightning Fast</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">🎨</div>
-                        <div class="stat-label">Smart Formatting</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">🚀</div>
-                        <div class="stat-label">Production Ready</div>
-                    </div>
-                </div>
-                <div class="hero-actions">
-                    <a href="#quick-start" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        Quick Start
+                <h1>Advanced Discord Notifications for <span class="hero-highlight">GitHub Actions</span></h1>
+                <p>The most secure and feature-rich Discord webhook notification action with intelligent formatting and enterprise-grade security.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#start" class="btn btn-primary">
+                        🚀 Quick Start
                     </a>
-                    <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
+                    <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" target="_blank" class="btn btn-secondary">
+                        🐙 View on GitHub
                     </a>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="discord-message">
-                    <div class="discord-header">
-                        <img src="https://raw.githubusercontent.com/Devlander-Software/discord-webhook-notifier-action/production/assets/images/github-logo.png" alt="Bot Avatar" class="discord-avatar">
-                        <div class="discord-info">
-                            <span class="discord-username">GitHub Actions</span>
-                            <span class="discord-timestamp">Today at 2:30 PM</span>
+
+                <div class="discord-preview">
+                    <div class="discord-message">
+                        <div class="discord-header">
+                            <div class="discord-avatar">🤖</div>
+                            <div>
+                                <div class="discord-username">GitHub Actions</div>
+                                <div class="discord-timestamp">Today at 2:30 PM</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="discord-content">
                         <div class="discord-embed">
-                            <div class="embed-color" style="background-color: #00ff00;"></div>
-                            <div class="embed-content">
-                                <div class="embed-title">✅ 🚀 Deployment: Success</div>
-                                <div class="embed-description">
-                                    <strong>Repository:</strong> <a href="#">Devlander-Software/awesome-app</a><br>
-                                    <strong>Branch:</strong> 🟢 <code>main</code> (Production)<br>
-                                    <strong>Commit:</strong> <a href="#"><code>a1b2c3d</code></a><br>
-                                    <strong>Triggered by:</strong> <code>landonjohnson</code>
-                                </div>
-                                <div class="embed-footer">
-                                    <span>GitHub Actions • 2025-01-15 14:30 UTC</span>
-                                </div>
+                            <div class="embed-title">✅ 🚀 Deployment: Success</div>
+                            <div class="embed-description">
+                                <strong>Repository:</strong> Devlander-Software/awesome-app<br>
+                                <strong>Branch:</strong> 🟢 <span class="embed-code">main</span> (Production)<br>
+                                <strong>Commit:</strong> <span class="embed-code">a1b2c3d</span><br>
+                                <strong>Triggered by:</strong> <span class="embed-code">landonjohnson</span>
                             </div>
                         </div>
                     </div>
@@ -135,20 +567,18 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <section class="features" id="features">
         <div class="container">
             <div class="section-header">
                 <h2>Powerful Features</h2>
-                <p>Everything you need for professional Discord notifications in your GitHub Actions workflows</p>
+                <p>Everything you need for professional Discord notifications in your GitHub workflows</p>
             </div>
+            
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="feature-icon">🛡️</div>
                     <h3>Enterprise Security</h3>
-                    <p>Comprehensive input validation, command injection prevention, URL security controls, and sanitized error handling.</p>
+                    <p>Built with security-first principles to protect your workflows and sensitive data.</p>
                     <ul class="feature-list">
                         <li>Input sanitization & validation</li>
                         <li>Command injection prevention</li>
@@ -156,12 +586,11 @@
                         <li>JSON injection protection</li>
                     </ul>
                 </div>
+
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
+                    <div class="feature-icon">🎨</div>
                     <h3>Smart Formatting</h3>
-                    <p>Intelligent auto-detection of workflow types, branch importance, and context-aware emojis and colors.</p>
+                    <p>Intelligent detection and formatting based on workflow context and branch importance.</p>
                     <ul class="feature-list">
                         <li>Auto-detect workflow types</li>
                         <li>Branch importance detection</li>
@@ -169,12 +598,11 @@
                         <li>Rich embed support</li>
                     </ul>
                 </div>
+
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
+                    <div class="feature-icon">⚡</div>
                     <h3>Enterprise Features</h3>
-                    <p>Advanced capabilities for large teams including retry logic, thread support, mentions, and message flags.</p>
+                    <p>Advanced capabilities designed for large teams and complex workflows.</p>
                     <ul class="feature-list">
                         <li>Retry logic with backoff</li>
                         <li>Thread support</li>
@@ -182,145 +610,91 @@
                         <li>Message flags</li>
                     </ul>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Customization</h3>
-                    <p>Extensive customization options for titles, descriptions, colors, avatars, and compact mode for busy channels.</p>
-                    <ul class="feature-list">
-                        <li>Custom titles & descriptions</li>
-                        <li>Color customization</li>
-                        <li>Avatar & username override</li>
-                        <li>Compact mode</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Developer Friendly</h3>
-                    <p>Easy integration with comprehensive documentation, examples, and backward compatibility with existing actions.</p>
-                    <ul class="feature-list">
-                        <li>Drop-in compatibility</li>
-                        <li>Comprehensive docs</li>
-                        <li>Code examples</li>
-                        <li>Testing suite</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Performance</h3>
-                    <p>Optimized for speed with minimal overhead, efficient API usage, and smart caching for better performance.</p>
-                    <ul class="feature-list">
-                        <li>Lightning fast execution</li>
-                        <li>Minimal overhead</li>
-                        <li>Efficient API usage</li>
-                        <li>Smart caching</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Security Section -->
-    <section id="security" class="security">
+    <section class="security" id="security">
         <div class="container">
-            <div class="security-content">
-                <div class="security-text">
-                    <div class="section-header">
-                        <h2>🔒 Enterprise-Grade Security</h2>
-                        <p>Built with security-first principles to protect your workflows and data</p>
+            <div class="security-grid">
+                <div>
+                    <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                        <h2>Enterprise-Grade Security</h2>
+                        <p style="text-align: left;">Built with security-first principles to protect your workflows and data</p>
                     </div>
-                    <div class="security-features">
-                        <div class="security-item">
-                            <i class="fas fa-check-circle"></i>
+                    
+                    <ul class="security-features">
+                        <li class="security-feature">
+                            <span class="security-check">✓</span>
                             <div>
                                 <h4>Input Validation & Sanitization</h4>
-                                <p>All user inputs are sanitized to prevent injection attacks and malicious content</p>
+                                <p style="color: #b9bbbe; font-size: 14px;">All user inputs are sanitized to prevent injection attacks</p>
                             </div>
-                        </div>
-                        <div class="security-item">
-                            <i class="fas fa-check-circle"></i>
+                        </li>
+                        <li class="security-feature">
+                            <span class="security-check">✓</span>
                             <div>
                                 <h4>Command Injection Prevention</h4>
-                                <p>Replaced unsafe git commands with secure GitHub API calls</p>
+                                <p style="color: #b9bbbe; font-size: 14px;">Replaced unsafe git commands with secure GitHub API calls</p>
                             </div>
-                        </div>
-                        <div class="security-item">
-                            <i class="fas fa-check-circle"></i>
+                        </li>
+                        <li class="security-feature">
+                            <span class="security-check">✓</span>
                             <div>
                                 <h4>URL Security Controls</h4>
-                                <p>Domain allowlist validation ensures only trusted URLs are used</p>
+                                <p style="color: #b9bbbe; font-size: 14px;">Domain allowlist validation ensures only trusted URLs are used</p>
                             </div>
-                        </div>
-                        <div class="security-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Error Message Sanitization</h4>
-                                <p>Prevents information disclosure through sanitized error responses</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="security-cta">
-                        <a href="docs/SECURITY.md" class="btn btn-outline">
-                            <i class="fas fa-shield-alt"></i>
-                            View Security Documentation
-                        </a>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="security-visual">
-                    <div class="security-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Security Rating</span>
-                        <div class="security-rating">HIGH</div>
-                    </div>
+                
+                <div class="security-badge">
+                    <div class="security-rating">🛡️</div>
+                    <div>Security Rating</div>
+                    <div class="security-level">HIGH</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Start Section -->
-    <section id="quick-start" class="quick-start">
+    <section class="quick-start" id="start">
         <div class="container">
             <div class="section-header">
                 <h2>Quick Start</h2>
                 <p>Get up and running in minutes with our simple setup process</p>
             </div>
-            <div class="quick-start-content">
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Create Discord Webhook</h3>
-                            <p>Go to your Discord server settings and create a webhook in your desired channel</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Add to GitHub Secrets</h3>
-                            <p>Add your webhook URL to your repository or organization secrets</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Add to Workflow</h3>
-                            <p>Add the action to your GitHub Actions workflow</p>
-                        </div>
-                    </div>
+            
+            <div class="quick-start-grid">
+                <div>
+                    <ul class="steps">
+                        <li class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create Discord Webhook</h4>
+                                <p>Go to your Discord server settings and create a webhook</p>
+                            </div>
+                        </li>
+                        <li class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Add to GitHub Secrets</h4>
+                                <p>Add your webhook URL to your repository secrets as DISCORD_WEBHOOK</p>
+                            </div>
+                        </li>
+                        <li class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Add to Workflow</h4>
+                                <p>Add the action to your GitHub Actions workflow file</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>Basic Usage</span>
-                        <button class="copy-btn" onclick="copyCode('basic-code')">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                    </div>
-                    <pre><code id="basic-code">- name: Notify Discord
+                
+                <div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode()">📋 Copy</button>
+<pre>- name: Notify Discord
   uses: Devlander-Software/discord-webhook-notifier-action@v1.1.0
   if: always()
   with:
@@ -332,225 +706,67 @@
     branch: ${{ github.ref_name }}
     commit: ${{ github.sha }}
     actor: ${{ github.actor }}
-    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</code></pre>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Examples Section -->
-    <section id="examples" class="examples">
-        <div class="container">
-            <div class="section-header">
-                <h2>Live Examples</h2>
-                <p>See the action in action with real-world examples</p>
-            </div>
-            <div class="examples-grid">
-                <div class="example-card">
-                    <div class="example-header">
-                        <h3>🚀 Deployment Success</h3>
-                        <span class="example-badge success">Success</span>
-                    </div>
-                    <div class="example-content">
-                        <div class="discord-message-small">
-                            <div class="discord-embed-small">
-                                <div class="embed-color-small" style="background-color: #00ff00;"></div>
-                                <div class="embed-content-small">
-                                    <div class="embed-title-small">✅ 🚀 Deployment: Success</div>
-                                    <div class="embed-description-small">
-                                        <strong>Repository:</strong> awesome-app<br>
-                                        <strong>Branch:</strong> 🟢 main (Production)<br>
-                                        <strong>Commit:</strong> a1b2c3d<br>
-                                        <strong>Triggered by:</strong> landonjohnson
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="example-card">
-                    <div class="example-header">
-                        <h3>❌ Test Failure</h3>
-                        <span class="example-badge failure">Failure</span>
-                    </div>
-                    <div class="example-content">
-                        <div class="discord-message-small">
-                            <div class="discord-embed-small">
-                                <div class="embed-color-small" style="background-color: #ff0000;"></div>
-                                <div class="embed-content-small">
-                                    <div class="embed-title-small">❌ 🧪 Testing: Failed</div>
-                                    <div class="embed-description-small">
-                                        <strong>Repository:</strong> awesome-app<br>
-                                        <strong>Branch:</strong> 🔵 feature/new-feature<br>
-                                        <strong>Commit:</strong> e4f5g6h<br>
-                                        <strong>Triggered by:</strong> landonjohnson
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="example-card">
-                    <div class="example-header">
-                        <h3>🎉 Release</h3>
-                        <span class="example-badge release">Release</span>
-                    </div>
-                    <div class="example-content">
-                        <div class="discord-message-small">
-                            <div class="discord-embed-small">
-                                <div class="embed-color-small" style="background-color: #ffa500;"></div>
-                                <div class="embed-content-small">
-                                    <div class="embed-title-small">🎉 🎉 Release: v1.2.0</div>
-                                    <div class="embed-description-small">
-                                        <strong>Repository:</strong> awesome-app<br>
-                                        <strong>Branch:</strong> 🟢 main (Production)<br>
-                                        <strong>Commit:</strong> i7j8k9l<br>
-                                        <strong>Triggered by:</strong> landonjohnson
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    run_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</pre>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Documentation Section -->
-    <section id="docs" class="docs">
+    <section class="final-cta">
         <div class="container">
-            <div class="section-header">
-                <h2>Documentation</h2>
-                <p>Comprehensive guides and API reference</p>
-            </div>
-            <div class="docs-grid">
-                <div class="doc-card">
-                    <div class="doc-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Getting Started</h3>
-                    <p>Learn how to set up and configure the action in your workflows</p>
-                    <a href="docs/installation.md" class="doc-link">Read Guide <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3>Configuration</h3>
-                    <p>Explore all available options and customization features</p>
-                    <a href="docs/configuration.md" class="doc-link">View Options <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Examples</h3>
-                    <p>Real-world examples and use cases for different scenarios</p>
-                    <a href="docs/examples.md" class="doc-link">See Examples <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Security</h3>
-                    <p>Security features, best practices, and vulnerability reporting</p>
-                    <a href="docs/SECURITY.md" class="doc-link">Security Guide <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>FAQ</h3>
-                    <p>Frequently asked questions and troubleshooting tips</p>
-                    <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action/issues" class="doc-link">View FAQ <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-icon">
-                        <i class="fas fa-bug"></i>
-                    </div>
-                    <h3>Support</h3>
-                    <p>Get help, report issues, or contribute to the project</p>
-                    <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action/issues" class="doc-link">Get Support <i class="fas fa-arrow-right"></i></a>
-                </div>
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of developers using our secure Discord notification action</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" target="_blank" class="btn" style="background: white; color: #5865f2;">
+                    🐙 View on GitHub
+                </a>
+                <a href="https://github.com/marketplace/actions/discord-webhook-notifier-action" target="_blank" class="btn btn-secondary">
+                    🏪 GitHub Marketplace
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Get Started?</h2>
-                <p>Join thousands of developers using our secure Discord notification action</p>
-                <div class="cta-actions">
-                    <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" class="btn btn-primary btn-large" target="_blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <a href="https://github.com/marketplace/actions/discord-webhook-notifier-action" class="btn btn-secondary btn-large" target="_blank">
-                        <i class="fas fa-store"></i>
-                        GitHub Marketplace
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        function copyCode() {
+            const codeText = `- name: Notify Discord
+  uses: Devlander-Software/discord-webhook-notifier-action@v1.1.0
+  if: always()
+  with:
+    webhook: \${{ secrets.DISCORD_WEBHOOK }}
+    status: \${{ job.status }}
+    workflow: \${{ github.workflow }}
+    job: \${{ github.job }}
+    repo: \${{ github.repository }}
+    branch: \${{ github.ref_name }}
+    commit: \${{ github.sha }}
+    actor: \${{ github.actor }}
+    run_url: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}`;
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fab fa-discord"></i>
-                        <span>Discord Notifier</span>
-                    </div>
-                    <p>Advanced Discord notifications for GitHub Actions with enterprise-grade security and smart formatting.</p>
-                    <div class="footer-social">
-                        <a href="https://github.com/Devlander-Software/discord-webhook-notifier-action" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://discord.gg/devlander" target="_blank">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Documentation</h4>
-                    <ul>
-                        <li><a href="docs/installation.md">Installation</a></li>
-                        <li><a href="docs/configuration.md">Configuration</a></li>
-                        <li><a href="docs/examples.md">Examples</a></li>
-                        <li><a href="docs/SECURITY.md">Security</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://github.com/Devlander-Software/discord-webhook-notifier-action/releases">Releases</a></li>
-                        <li><a href="https://github.com/Devlander-Software/discord-webhook-notifier-action/issues">Issues</a></li>
-                        <li><a href="https://github.com/Devlander-Software/discord-webhook-notifier-action/discussions">Discussions</a></li>
-                        <li><a href="CHANGELOG.md">Changelog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="LICENSE">License</a></li>
-                        <li><a href="docs/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
-                        <li><a href="docs/CONTRIBUTING.md">Contributing</a></li>
-                        <li><a href="docs/SECURITY.md">Security Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Devlander Software. All rights reserved.</p>
-                <p>Made with ❤️ for the GitHub Actions community</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="assets/js/script.js"></script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
