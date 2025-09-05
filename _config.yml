@@ -1,0 +1,109 @@
+# GitHub Pages Configuration
+title: Discord Webhook Notifier Action
+description: The most advanced Discord webhook notification action for GitHub Actions with comprehensive security features, smart formatting, and enterprise capabilities.
+author: Devlander Software
+email: landon@devlander.software
+url: https://devlander-software.github.io
+baseurl: /discord-webhook-notifier-action
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .git
+  - .gitignore
+  - .github
+  - scripts
+  - docs/_site
+  - docs/Gemfile
+  - docs/Gemfile.lock
+  - docs/_config.yml
+  - docs/_layouts
+  - docs/assets
+  - docs/guides
+  - docs/reference
+  - docs/api.md
+  - docs/configuration.md
+  - docs/examples.md
+  - docs/installation.md
+  - docs/CODE_OF_CONDUCT.md
+  - docs/CONTRIBUTING.md
+  - docs/SECURITY.md
+  - docs/index.md
+  - docs/README.md
+  - docs/reference/COMPARISON.md
+  - docs/guides/GITHUB-PAGES-SETUP.md
+  - docs/guides/ORGANIZATION-SETUP.md
+  - docs/guides/TESTING.md
+  - action.yml
+  - package.json
+  - CHANGELOG.md
+  - LICENSE
+  - template-workflow.yml
+  - org-discord-notify.yml
+  - env.example
+  - landing-page.html
+  - notification-examples.html
+  - security-demo.sh
+  - test-basic.sh
+  - scripts/notify.sh.backup
+  - scripts/notify-secure.sh
+
+# Include
+include:
+  - _redirects
+
+# SEO
+twitter:
+  username: devlander_software
+  card: summary_large_image
+
+# Social
+social:
+  name: Devlander Software
+  links:
+    - https://github.com/Devlander-Software
+    - https://discord.gg/devlander
+
+# Analytics (add your tracking ID)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Site settings
+timezone: UTC
+lang: en

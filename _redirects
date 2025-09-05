@@ -1,0 +1,7 @@
+# Redirects for GitHub Pages
+/docs/* /:splat 200
+/installation /docs/installation.md 200
+/configuration /docs/configuration.md 200
+/examples /docs/examples.md 200
+/security /docs/SECURITY.md 200
+/api /docs/api.md 200
