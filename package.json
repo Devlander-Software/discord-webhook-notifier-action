@@ -1,7 +1,7 @@
 {
   "name": "discord-webhook-notifier-action",
-  "version": "1.0.2",
-  "description": "The most advanced Discord webhook notification action for GitHub Actions with unmatched customization and drop-in compatibility",
+  "version": "1.1.0",
+  "description": "The most advanced Discord webhook notification action for GitHub Actions with unmatched customization, comprehensive security features, and drop-in compatibility",
   "main": "action.yml",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,7 @@
     "test:local": "./scripts/test-local.sh",
     "test:integration": "./scripts/test-integration.sh",
     "test:advanced": "./scripts/test-advanced.sh",
+    "test:security": "./scripts/test-security.sh",
     "setup:org": "./scripts/setup-org-notifications.sh"
   },
   "keywords": [

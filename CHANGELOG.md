@@ -13,6 +13,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Documentation Cleanup**: Removed message editing references to keep action focused on webhook notifications
 - **Template Updates**: Fixed template workflow to use correct action references
 
+## [1.1.0] - 2025-01-15
+
+### 🔒 Security Enhancements
+- **Comprehensive Input Validation**: Added sanitization for all user inputs to prevent injection attacks
+- **Command Injection Prevention**: Replaced unsafe git commands with GitHub API calls
+- **URL Security**: Implemented domain allowlist validation for avatar URLs and webhook validation
+- **JSON Injection Prevention**: Added JSON validation and sanitization for all jq inputs
+- **Error Message Sanitization**: Sanitized error responses to prevent information disclosure
+- **Input Length Limits**: Added maximum length restrictions for all text fields
+- **Character Filtering**: Removed dangerous control characters and null bytes
+- **Security Test Suite**: Created comprehensive security testing framework
+
+### 🛡️ Security Features
+- **Trusted Domain Allowlist**: Only allows avatar URLs from trusted domains (github.com, github.githubassets.com, raw.githubusercontent.com, cdn.discordapp.com, discord.com)
+- **Webhook URL Validation**: Validates Discord webhook URL format before processing
+- **Status Validation**: Restricts status values to allowed options (success, failure, cancelled)
+- **Safe Error Handling**: Prevents sensitive information disclosure in error messages
+- **Input Sanitization Functions**: Comprehensive sanitization for shell safety and JSON escaping
+
+### 📚 Documentation Updates
+- **Enhanced SECURITY.md**: Added detailed security features and best practices
+- **Updated action.yml**: Added security-focused input descriptions with length limits
+- **Security Test Script**: Created `test-security.sh` for automated security testing
+- **Security Demo**: Added demonstration script showing all security improvements
+
 ## [Unreleased]
 
 ### 🚀 Major Enhancements

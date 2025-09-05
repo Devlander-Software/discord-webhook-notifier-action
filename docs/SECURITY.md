@@ -20,6 +20,28 @@ If you discover a security vulnerability in Discord Webhook Notifier Action, ple
 3. **Wait for acknowledgment** - You should receive a response within 48 hours
 4. **Follow up** - We'll work with you to validate and fix the issue
 
+## Security Features
+
+This action includes comprehensive security measures:
+
+### Input Validation & Sanitization
+- **All user inputs are sanitized** to prevent injection attacks
+- **Input length limits** prevent abuse and buffer overflow attacks
+- **URL validation** ensures only trusted domains are used for avatars
+- **JSON validation** prevents injection through embed parameters
+- **Command injection protection** by using GitHub API instead of git commands
+
+### Security Validations
+- **Webhook URL format validation** ensures only valid Discord webhooks are accepted
+- **Status validation** restricts to allowed values (success, failure, cancelled)
+- **Error message sanitization** prevents information disclosure
+- **Character filtering** removes dangerous control characters
+
+### Safe Defaults
+- **Trusted domain allowlist** for avatar URLs
+- **Maximum input lengths** for all text fields
+- **Secure error handling** with sanitized responses
+
 ## Security Best Practices
 
 When using this action, please follow these security guidelines:
@@ -42,6 +64,7 @@ When using this action, please follow these security guidelines:
 - **Pin action versions** to specific releases (e.g., `@v1.0.0`) rather than using `@main`
 - **Review action source code** before using in production
 - **Monitor action logs** for any unexpected behavior
+- **Test with security test suite** using `./scripts/test-security.sh`
 
 ## Disclosure Policy
 

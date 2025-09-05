@@ -1,5 +1,5 @@
 name: "Discord Webhook Notifier Action"
-description: "Advanced Discord notifications for GitHub Actions with smart formatting, enterprise features & drop-in compatibility"
+description: "Advanced Discord notifications for GitHub Actions with smart formatting, enterprise features & drop-in compatibility. Includes comprehensive input validation and security features."
 author: "Devlander Software"
 branding:
   icon: 'message-circle'
@@ -15,7 +15,7 @@ branding:
 
 inputs:
   webhook:
-    description: "Discord Webhook URL (create one in your Discord server settings)"
+    description: "Discord Webhook URL (create one in your Discord server settings). Must be a valid Discord webhook URL."
     required: true
   # Smart defaults and auto-detection
   auto_detect:
@@ -28,19 +28,19 @@ inputs:
     default: "true"
   # Compatibility/adapter inputs
   content:
-    description: "Plain text message (outside embed)"
+    description: "Plain text message (outside embed). Max 2000 characters."
     required: false
     default: ""
   username:
-    description: "Bot username (overrides default)"
+    description: "Bot username (overrides default). Max 80 characters."
     required: false
     default: "GitHub Actions"
   avatar_url:
-    description: "Bot avatar URL (overrides default)"
+    description: "Bot avatar URL (overrides default). Must be from trusted domains (github.com, github.githubassets.com, raw.githubusercontent.com, cdn.discordapp.com, discord.com)."
     required: false
     default: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
   embeds:
-    description: "Raw JSON array of Discord embeds (overrides all other embed options)"
+    description: "Raw JSON array of Discord embeds (overrides all other embed options). Must be valid JSON. Max 10KB."
     required: false
     default: ""
   tts:
@@ -49,19 +49,19 @@ inputs:
     default: "false"
   # Advanced features
   thread_id:
-    description: "Discord thread ID to send message to (optional)"
+    description: "Discord thread ID to send message to (optional). Max 50 characters."
     required: false
     default: ""
   flags:
-    description: "Message flags (SUPPRESS_EMBEDS, SUPPRESS_NOTIFICATIONS)"
+    description: "Message flags (SUPPRESS_EMBEDS, SUPPRESS_NOTIFICATIONS). Max 50 characters."
     required: false
     default: ""
   mention_users:
-    description: "Comma-separated list of user IDs to mention"
+    description: "Comma-separated list of user IDs to mention. Max 500 characters."
     required: false
     default: ""
   mention_roles:
-    description: "Comma-separated list of role IDs to mention"
+    description: "Comma-separated list of role IDs to mention. Max 500 characters."
     required: false
     default: ""
   # Enterprise features
